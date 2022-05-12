@@ -9,10 +9,14 @@ import {
     Dimensions,
     Image
 } from 'react-native';
-import styles from "./styles";
+import styles from './styles';
 import {LinearGradient} from 'expo-linear-gradient';
 import Feather from 'react-native-vector-icons/Feather';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import { StackNavigator } from "react-navigation";
+import { NavigationContainer } from '@react-navigation/native';
+
+
 
 const Login = () => {
 
