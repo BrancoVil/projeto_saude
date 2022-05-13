@@ -23,6 +23,8 @@ const Login = () => {
     return(
         <View style={styles.container}>
             <View style={styles.header}>
+            <Image source={require('../Login/logo.png')}
+                    style={styles.img}></Image>
                 <Text style={styles.text_header}>Bem-Vindo!</Text>
             </View>
             <View style={styles.footer}>

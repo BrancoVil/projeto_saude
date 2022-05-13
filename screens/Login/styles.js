@@ -25,7 +25,6 @@ const styles = StyleSheet.create({
             fontWeight: 'bold',
             fontSize: 40,
             textAlign:'center',
-            paddingBottom:1
         },
         text_footer: {
             color: '#000',
@@ -64,12 +63,16 @@ const styles = StyleSheet.create({
             height: 50,
             justifyContent: 'center',
             alignItems: 'center',
-            borderRadius: 10
+            borderRadius: 12
         },
         textSign: {
             fontSize: 35,
             fontWeight: 'bold',
             color:'#fff'
+        },
+        img: {
+            alignSelf:'center',
+            height: 110
         }
       });
 

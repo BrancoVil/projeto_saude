@@ -17,8 +17,29 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 const TelaCadastro = () => {
 
     return(
-        <View>
-            <Text>Tela de cadastro</Text>
+        <View style={styles.button}>
+                    <LinearGradient
+                        colors={['#205DB8', '#729fe2']}
+                        style={styles.signIn}
+                    >
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('TelaCadastro')}
+                    >
+                        <Text style={styles.textSign}>CADASTRAR</Text>
+                    </TouchableOpacity>
+                    </LinearGradient>
+                    <View style={styles.button}>
+                    <LinearGradient
+                        colors={['#205DB8', '#729fe2']}
+                        style={styles.signIn}
+                    >
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('TelaCadastro')}
+                    >
+                        <Text style={styles.textSign}>LISTAR</Text>
+                    </TouchableOpacity>
+                    </LinearGradient>
+        </View>
         </View>
     )
 }
