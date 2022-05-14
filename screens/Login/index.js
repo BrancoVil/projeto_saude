@@ -16,10 +16,11 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { StackNavigator } from "react-navigation";
 import { NavigationContainer } from '@react-navigation/native';
 
+const TelaCadastro = props =>{
+    props.navigation.navigate('TelaCadastro')
+}
 
-
-const Login = () => {
-
+const Login = props => {
     return(
         <View style={styles.container}>
             <View style={styles.header}>
@@ -68,11 +69,8 @@ const Login = () => {
                 <View style={styles.button}>
                     <LinearGradient
                         colors={['#205DB8', '#729fe2']}
-                        style={styles.signIn}
-                    >
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate('TelaCadastro')}
-                    >
+                        style={styles.signIn}>
+                    <TouchableOpacity onPress={() => TelaCadastro(props) }>
                         <Text style={styles.textSign}>ENTRAR</Text>
                     </TouchableOpacity>
                     </LinearGradient>

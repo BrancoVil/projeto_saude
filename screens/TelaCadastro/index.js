@@ -17,30 +17,24 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 const TelaCadastro = () => {
 
     return(
-        <View style={styles.button}>
-                    <LinearGradient
+    <View style={styles.button}>
+            <LinearGradient
                         colors={['#205DB8', '#729fe2']}
-                        style={styles.signIn}
-                    >
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate('TelaCadastro')}
-                    >
+                        style={styles.signIn}>
+                <TouchableOpacity>
                         <Text style={styles.textSign}>CADASTRAR</Text>
-                    </TouchableOpacity>
-                    </LinearGradient>
-                    <View style={styles.button}>
-                    <LinearGradient
+                </TouchableOpacity>
+            </LinearGradient>
+        <View style={styles.button}>
+            <LinearGradient
                         colors={['#205DB8', '#729fe2']}
-                        style={styles.signIn}
-                    >
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate('TelaCadastro')}
-                    >
+                        style={styles.signIn}>
+                    <TouchableOpacity>
                         <Text style={styles.textSign}>LISTAR</Text>
                     </TouchableOpacity>
-                    </LinearGradient>
+            </LinearGradient>
         </View>
-        </View>
+    </View>
     )
 }
 
