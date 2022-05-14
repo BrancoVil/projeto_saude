@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import Login from './screens/Login';
 import TelaCadastro from './screens/TelaCadastro';
+import FormCadastro from './screens/FormCadastro';
 
 import { createStackNavigator } from 'react-navigation-stack';
 import { useNavigation } from '@react-navigation/native';
@@ -24,6 +25,14 @@ export default function App() {
         name="TelaCadastro" 
         component={TelaCadastro} 
         options={{title: 'Pacientes',
+        headerStyle:{backgroundColor:'#205DB8'}, 
+        headerTitleAlign:"center",
+        headerTintColor:'#fff'
+        }}/>
+        <Stack.Screen 
+        name="FormCadastro" 
+        component={FormCadastro} 
+        options={{title: 'Cadastrar informações',
         headerStyle:{backgroundColor:'#205DB8'}, 
         headerTitleAlign:"center",
         headerTintColor:'#fff'
