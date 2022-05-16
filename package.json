@@ -33,9 +33,7 @@
     "react-navigation": "^4.4.4",
     "react-navigation-stack": "^2.10.4",
     "react-router-dom": "^6.3.0",
-    "styled-components": "^5.0.0",
-    "webpack-dev-server": "~3.11.0",
-    "@expo/webpack-config": "~0.16.2"
+    "styled-components": "^5.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
