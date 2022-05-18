@@ -13,7 +13,8 @@ const styles = StyleSheet.create({
       text_footer: {
           color: '#000',
           fontSize:25,
-          alignSelf:'center'
+          alignSelf:'center',
+          
         },
       action: {
           flexDirection:'row-reverse',
@@ -34,10 +35,11 @@ const styles = StyleSheet.create({
       },
       signIn: {
           width: '75%',
-          height: 50,
+          height: 100,
           alignItems: 'center',
           alignSelf:'center',
-          borderRadius: 12,
+          justifyContent:'center',
+          borderRadius: 12,          
       },
       textSign: {
           fontSize: 35,

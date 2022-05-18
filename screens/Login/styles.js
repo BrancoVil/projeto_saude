@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
         },
         button: {
             alignItems: 'center',
-            marginTop: 50
+            marginTop: 50,
         },
         signIn: {
             width: '100%',
