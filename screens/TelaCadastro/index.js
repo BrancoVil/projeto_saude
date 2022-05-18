@@ -7,7 +7,8 @@ import {
     TouchableOpacity,
     TextInput,
     Dimensions,
-    Image
+    Image,
+    ScrollView
 } from 'react-native';
 import styles from './styles';
 import {LinearGradient} from 'expo-linear-gradient';
@@ -21,6 +22,7 @@ const FormCadastro = props =>{
 const TelaCadastro = props => {
 
     return(
+    <ScrollView>
     <View style={styles.button}>
             <LinearGradient
                         colors={['#205DB8', '#729fe2']}
@@ -39,6 +41,7 @@ const TelaCadastro = props => {
             </LinearGradient>
         </View>
     </View>
+    </ScrollView>
     )
 }
 

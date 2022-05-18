@@ -25,53 +25,42 @@ const FormCadastro = props => {
     return(
             <ScrollView style={styles.footer}>
                 <Text style={styles.text_footer}>Nome</Text>
-                <View style={styles.action}>
                     <TextInput
                         placeholder="Preencha o campo"
                         style={styles.textInput}
                         autoCapitalize='none'
                     />
-                </View>
                 <Text style={styles.text_footer}>CPF</Text>
-                <View style={styles.action}>
                     <TextInput
+                        keyboardType="numeric"
                         placeholder="Preencha o campo"
                         style={styles.textInput}
                         autoCapitalize='none'
                     />
-                </View>
                 <Text style={styles.text_footer}>Cartão do Sus</Text>
-                <View style={styles.action}>
                     <TextInput
                         placeholder="Preencha o campo"
                         style={styles.textInput}
                         autoCapitalize='none'
                     />
-                </View>
                 <Text style={styles.text_footer}>Endereço</Text>
-                <View style={styles.action}>
                     <TextInput
                         placeholder="Preencha o campo"
                         style={styles.textInput}
                         autoCapitalize='none'
                     />
-                </View>
                 <Text style={styles.text_footer}>Atendente</Text>
-                <View style={styles.action}>
                     <TextInput
                         placeholder="Preencha o campo"
                         style={styles.textInput}
                         autoCapitalize='none'
                     />
-                </View>
                 <Text style={styles.text_footer}>Idade</Text>
-                <View style={styles.action}>
                     <TextInput
                         placeholder="Preencha o campo"
                         style={styles.textInput}
                         autoCapitalize='none'
                     />
-                </View>
                 <View style={styles.gradient}>
                 <LinearGradient
                         colors={['#205DB8', '#729fe2']}

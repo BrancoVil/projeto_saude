@@ -4,30 +4,31 @@ const styles = StyleSheet.create({
       footer: {
           flex:1,
           backgroundColor: '#fff',
-          borderTopLeftRadius: 20,
-          borderTopRightRadius: 20,
           paddingHorizontal: 10,
-          paddingVertical: 20,
-          paddingTop:50
       },
       text_footer: {
           color: '#000',
           fontSize:25,
           alignSelf:'center',
+          paddingBottom:20,
+          paddingTop:20
           
         },
       action: {
-          flexDirection:'row-reverse',
-          marginTop: 3,
+          flexDirection:'center',
+          marginTop: 10,
           borderBottomWidth: 1,
+          borderTopWidth:1,
           borderBottomColor: '#205DB8',
-          paddingBottom: 3
+          paddingBottom: 10
       },
       textInput: {
           flex: 1,
-          textAlign:'center',
           color: '#000',
-          fontSize:20
+          fontSize:20,
+          borderRadius:15,
+          borderColor:'black',
+          borderWidth:1
       },
       button: {
           alignItems: 'center',
@@ -47,7 +48,8 @@ const styles = StyleSheet.create({
           color:'white',
       },
       gradient:{
-          paddingTop:100
+          paddingTop:20
+
       }
   });
 

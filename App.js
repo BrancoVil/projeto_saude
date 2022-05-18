@@ -41,7 +41,7 @@ export default function App() {
         <Stack.Screen
         name="TelaPaciente"
         component={TelaPaciente}
-        options={{title: 'Informações do Paciente',
+        options={{title: 'Informações da consulta',
         headerStyle:{backgroundColor:'#205DB8'},
         headerTitleAlign:'center',
         headerTintColor:'#fff'}}/>
