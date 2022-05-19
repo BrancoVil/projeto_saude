@@ -7,7 +7,8 @@ import {
     TouchableOpacity,
     TextInput,
     Dimensions,
-    Image
+    Image,
+    ScrollView
 } from 'react-native';
 import styles from './styles';
 import {LinearGradient} from 'expo-linear-gradient';
@@ -22,17 +23,22 @@ const TelaCadastro = props =>{
 
 const Login = props => {
     return(
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <View style={styles.header}>
+                <LinearGradient
+                colors={['#ffb347', '#ffcc33']}
+                style={styles.gradient_header}
+                start={{x:2.0, y:0.8}}>           
             <Image source={require('../Login/logo.png')}
                     style={styles.img}></Image>
                 <Text style={styles.text_header}>Bem-Vindo!</Text>
+                </LinearGradient>
             </View>
             <View style={styles.footer}>
                 <Text style={styles.text_footer}>Atendente</Text>
                 <View style={styles.action}>
-                    <FontAwesome
-                        name="user-o"
+                    <Feather
+                        name="user"
                         color="#000"
                         size={25}
                         />
@@ -42,13 +48,12 @@ const Login = props => {
                         autoCapitalize='none'
                     />
                 </View>
-
                 <Text style={[styles.text_footer, {
                     marginTop: 35
                 }]}>Senha</Text>
             <View style={styles.action}>
-                    <FontAwesome
-                        name="lock"
+                    <Feather
+                        name="key"
                         color="#000"
                         size={28}
                         />
@@ -61,22 +66,20 @@ const Login = props => {
                 <TouchableOpacity>
                     <Feather
                         name="eye"
-                        color="#205DB8"
+                        color="#ffe200"
                         size={20}
                     />
                 </TouchableOpacity>
             </View>
                 <View style={styles.button}>
-                    <LinearGradient
-                        colors={['#205DB8', '#729fe2']}
-                        style={styles.signIn}>
-                    <TouchableOpacity onPress={() => TelaCadastro(props) }>
-                        <Text style={styles.textSign}>ENTRAR</Text>
+                    <TouchableOpacity
+                    style={styles.signIn}
+                    onPress={() => TelaCadastro(props)}>
+                            <Text style={styles.textSign}>ENTRAR</Text>
                     </TouchableOpacity>
-                    </LinearGradient>
                 </View>
             </View>
-        </View>
+        </ScrollView>
     )
 }
 

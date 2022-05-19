@@ -2,23 +2,20 @@ import { StyleSheet } from 'react-native'
 
 
 const styles = StyleSheet.create({
-        container: {
-          flex: 1, 
-          backgroundColor: '#205DB8'
+        container: { 
+          backgroundColor: '#ffcc33'
         },
         header: {
             flex: 2,
-            justifyContent: 'flex-end',
-            paddingHorizontal: 20,
-            paddingBottom: 90
+            justifyContent: 'center',
         },
         footer: {
-            flex: 3 ,
             backgroundColor: '#fff',
             borderTopLeftRadius: 30,
             borderTopRightRadius: 30,
             paddingHorizontal: 20,
-            paddingVertical: 30
+            paddingVertical: 40,
+            height:450
         },
         text_header: {
             color: '#fff',
@@ -37,13 +34,6 @@ const styles = StyleSheet.create({
             borderBottomColor: '#f2f2f2',
             paddingBottom: 5
         },
-        actionError: {
-            flexDirection: 'row',
-            marginTop: 10,
-            borderBottomWidth: 1,
-            borderBottomColor: '#FF0000',
-            paddingBottom: 5
-        },
         textInput: {
             flex: 1,
             marginTop: Platform.OS === 'ios' ? 0 : -12,
@@ -55,24 +45,32 @@ const styles = StyleSheet.create({
             fontSize: 14,
         },
         button: {
-            alignItems: 'center',
-            marginTop: 50,
+            paddingHorizontal:30,
+            paddingTop:50
+        },
+        button1 :{
+        
         },
         signIn: {
             width: '100%',
             height: 50,
             justifyContent: 'center',
             alignItems: 'center',
-            borderRadius: 12
+            borderRadius: 30,
+            backgroundColor:'#ffcc33',
         },
         textSign: {
-            fontSize: 35,
+            fontSize: 20,
             fontWeight: 'bold',
             color:'#fff'
         },
         img: {
             alignSelf:'center',
             height: 110
+        },
+        gradient_header : {
+            paddingTop:200,
+            height:450
         }
       });
 
