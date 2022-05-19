@@ -19,18 +19,19 @@ const FormCadastro = props => {
 
     return(
             <View style={styles.footer}>
-                <Text style={styles.text_footer}>Atendente</Text>
+                <Text style={styles.text_footer}>Nome Completo</Text>
                 <View style={styles.action}>
                     <TextInput
-                        placeholder="Usuário"
+                        placeholder="Nome Completo"
                         style={styles.textInput}
                         autoCapitalize='none'
                     />
                 </View>
-                <Text style={styles.text_footer}>Atendente</Text>
+                <Text style={styles.text_footer}>CPF</Text>
                 <View style={styles.action}>
                     <TextInput
-                        placeholder="Usuário"
+                        keyboardType="numeric"
+                        placeholder="CPF"
                         style={styles.textInput}
                         autoCapitalize='none'
                     />
