@@ -17,6 +17,8 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { StackNavigator } from "react-navigation";
 import { NavigationContainer } from '@react-navigation/native';
 
+
+
 const TelaCadastro = props =>{
     props.navigation.navigate('TelaCadastro')
 }
@@ -51,9 +53,9 @@ const Login = props => {
                 }]}>Senha</Text>
             <View style={styles.action}>
                     <Feather
-                        name="key"
+                        name="lock"
                         color="#000"
-                        size={28}
+                        size={25}
                         />
                     <TextInput
                         placeholder="Insira sua senha"
@@ -70,14 +72,16 @@ const Login = props => {
                 </TouchableOpacity>
             </View>
                 <View style={styles.button}>
+                    <TouchableOpacity>
+                    <Text style={{alignSelf:'center', paddingBottom:25, fontSize:15, color:'#024a97', textDecorationLine:'underline'}}>Esqueceu a senha?</Text>
+                    </TouchableOpacity>
                     <TouchableOpacity
                     style={styles.signIn}
                     onPress={() => TelaCadastro(props)}>
                             <Text style={styles.textSign}>ENTRAR</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity
-                    style={styles.signIn1}>
-                            <Text style={{color:'black', fontSize:15}}>ESQUECI MINHA SENHA</Text>
+                    <TouchableOpacity style={styles.signIn1}>
+                            <Text style={{fontSize:20, alignContent:'center', color:'#4ea3fd'}}>Cadastre-se</Text>
                     </TouchableOpacity>
                 </View>
             </View>

@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
             backgroundColor: '#f2f2f2',
             paddingHorizontal: 20,
             paddingVertical: 40,
-            height:450,
+            height:420,
         },
         text_header: {
             color: '#fff',
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
         },
         button: {
             paddingHorizontal:30,
-            paddingTop:50
+            paddingTop:30
         },
         signIn: {
             width: '100%',
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
             borderWidth:2,
             borderRadius:30,
             borderColor:'#4ea3fd',
-            marginTop:20
+            marginTop:20,
         },
         textSign: {
             fontSize: 20,
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
         },
         img: {
             alignSelf:'center',
-            height: 140,
+            height: 150,
             width:150
         },
         gradient_header : {
