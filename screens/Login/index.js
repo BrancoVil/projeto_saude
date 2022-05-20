@@ -24,16 +24,14 @@ const TelaCadastro = props =>{
 const Login = props => {
     return(
         <ScrollView style={styles.container}>
-            <View style={styles.header}>
                 <LinearGradient
-                colors={['#ffb347', '#ffcc33']}
+                colors={['#024a97', '#4ea3fd']}
                 style={styles.gradient_header}
-                start={{x:2.0, y:0.8}}>           
-            <Image source={require('../Login/logo.png')}
+                start={{x:0.7, y:0.6}}>           
+            <Image source={require('../Login/logo1.png')}
                     style={styles.img}></Image>
                 <Text style={styles.text_header}>Bem-Vindo!</Text>
                 </LinearGradient>
-            </View>
             <View style={styles.footer}>
                 <Text style={styles.text_footer}>Atendente</Text>
                 <View style={styles.action}>
@@ -66,7 +64,7 @@ const Login = props => {
                 <TouchableOpacity>
                     <Feather
                         name="eye"
-                        color="#ffe200"
+                        color="#4ea3fd"
                         size={20}
                     />
                 </TouchableOpacity>
@@ -76,6 +74,10 @@ const Login = props => {
                     style={styles.signIn}
                     onPress={() => TelaCadastro(props)}>
                             <Text style={styles.textSign}>ENTRAR</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                    style={styles.signIn1}>
+                            <Text style={{color:'black', fontSize:15}}>ESQUECI MINHA SENHA</Text>
                     </TouchableOpacity>
                 </View>
             </View>
