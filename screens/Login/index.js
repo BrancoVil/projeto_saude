@@ -19,8 +19,12 @@ import { NavigationContainer } from '@react-navigation/native';
 
 
 
-const TelaCadastro = props =>{
-    props.navigation.navigate('TelaCadastro')
+const TelaCards = props =>{
+    props.navigation.navigate('TelaCards')
+}
+
+const SignUp = props =>{
+    props.navigation.navigate('SignUp')
 }
 
 const Login = props => {
@@ -35,7 +39,6 @@ const Login = props => {
                 <Text style={styles.text_header}>Bem-Vindo!</Text>
                 </LinearGradient>
             <View style={styles.footer}>
-                <Text style={styles.text_footer}>Atendente</Text>
                 <View style={styles.action}>
                     <Feather
                         name="user"
@@ -48,9 +51,7 @@ const Login = props => {
                         autoCapitalize='none'
                     />
                 </View>
-                <Text style={[styles.text_footer, {
-                    marginTop: 35
-                }]}>Senha</Text>
+                <View style={{marginTop:35}}/>
             <View style={styles.action}>
                     <Feather
                         name="lock"
@@ -58,7 +59,7 @@ const Login = props => {
                         size={25}
                         />
                     <TextInput
-                        placeholder="Insira sua senha"
+                        placeholder="Senha"
                         secureTextEntry={true}
                         style={styles.textInput}
                         autoCapitalize='none'
@@ -77,10 +78,14 @@ const Login = props => {
                     </TouchableOpacity>
                     <TouchableOpacity
                     style={styles.signIn}
-                    onPress={() => TelaCadastro(props)}>
+                    onPress={() => TelaCards(props)}>
                             <Text style={styles.textSign}>ENTRAR</Text>
+                            <Feather
+                                name="log-in"
+                                size={15}
+                                color='white' style={{paddingLeft:10}}/>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.signIn1}>
+                    <TouchableOpacity style={styles.signIn1} onPress={() => SignUp (props)}>
                             <Text style={{fontSize:20, alignContent:'center', color:'#4ea3fd'}}>Cadastre-se</Text>
                     </TouchableOpacity>
                 </View>

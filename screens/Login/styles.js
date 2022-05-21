@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
         container: { 
-            
+            backgroundColor: '#f2f2f2',
           
         },
         header: {
@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
             alignItems: 'center',
             borderRadius: 30,
             backgroundColor:'#4ea3fd',
+            flexDirection:'row'
         },
         signIn1: {
             width:'100%',
@@ -63,7 +64,7 @@ const styles = StyleSheet.create({
         textSign: {
             fontSize: 20,
             fontWeight: 'bold',
-            color:'#fff'
+            color:'#fff',
         },
         img: {
             alignSelf:'center',

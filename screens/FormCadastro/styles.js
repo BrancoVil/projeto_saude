@@ -3,8 +3,9 @@ import { StyleSheet } from 'react-native'
 const styles = StyleSheet.create({
       footer: {
           flex:1,
-          backgroundColor: '#fff',
+          backgroundColor: '#f2f2f2',
           paddingHorizontal: 10,
+          marginTop:20
       },
       text_footer: {
           color: '#000',
@@ -22,25 +23,19 @@ const styles = StyleSheet.create({
           borderBottomColor: '#205DB8',
           paddingBottom: 10
       },
-      textInput: {
-          flex: 1,
-          color: '#000',
-          fontSize:20,
-          borderRadius:15,
-          borderColor:'black',
-          borderWidth:1
-      },
       button: {
           alignItems: 'center',
           marginTop: 50
       },
       signIn: {
-          width: '75%',
-          height: 100,
-          alignItems: 'center',
-          alignSelf:'center',
-          justifyContent:'center',
-          borderRadius: 12,          
+        width: '80%',
+        height: 50,
+        alignSelf:'center',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 30,
+        backgroundColor:'#4ea3fd',
+        marginTop:40
       },
       textSign: {
           fontSize: 35,
@@ -50,6 +45,24 @@ const styles = StyleSheet.create({
       gradient:{
           paddingTop:20
 
+      },
+      cardform:{
+        height: 500,
+        alignSelf:'center',
+        marginTop: 50,
+        backgroundColor:'#fdfdfd',
+        borderRadius:10,
+        width:'90%',
+        shadowColor: "#666",
+        shadowOpacity: 0.8,
+        shadowRadius: 2,
+        shadowOffset: {
+          height: 1,
+          width: 1},
+        elevation:4,
+        marginBottom:10,
+        paddingTop:50,
+        paddingHorizontal:15,
       }
   });
 
