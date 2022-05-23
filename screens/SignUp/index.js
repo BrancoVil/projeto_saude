@@ -15,8 +15,12 @@ import {LinearGradient} from 'expo-linear-gradient';
 import Feather from 'react-native-vector-icons/Feather';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-const SignUp = props => {
 
+const Login = props =>{
+    props.navigation.navigate('Login')
+}
+
+const SignUp = props => {
     return(
          <View>
              <Text style={{alignSelf:'center', paddingTop:40}}>Formulário de teste</Text>
@@ -58,7 +62,7 @@ const SignUp = props => {
                     />
                 </View>
                 <View style={styles.cardform2}>
-                <TouchableOpacity style={styles.signIn} onPress={() => TelaPaciente(props) }>
+                <TouchableOpacity style={styles.signIn} onPress={() => Login(props) }>
                             <Text style={{fontSize:20, alignContent:'center', color:'white'}}>Cadastrar-se</Text>
                     </TouchableOpacity>
                 </View>
