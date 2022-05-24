@@ -27,7 +27,28 @@ const SignUp = props =>{
     props.navigation.navigate('SignUp')
 }
 
+
 const Login = props => {
+
+    const [data, setData] = React.useState({
+        password:'',
+        secureTextEntry:true
+     });
+
+     const UpdateSecureTextEntry = () => {
+        setData({
+            ...data,
+            secureTextEntry: !data.secureTextEntry
+        });
+    }
+    
+    const handlePasswordChange = (val) => {
+        setData({
+            ...data,
+            password:val
+        });
+    }
+
     return(
         <ScrollView style={styles.container}>
                 <LinearGradient
@@ -60,11 +81,13 @@ const Login = props => {
                         />
                     <TextInput
                         placeholder="Senha"
-                        secureTextEntry={true}
+                        secureTextEntry={data.secureTextEntry ? true : false}
                         style={styles.textInput}
                         autoCapitalize='none'
+                        onChangeText={(val) => handlePasswordChange(val)}
                     />
-                <TouchableOpacity>
+                <TouchableOpacity
+                onPress={UpdateSecureTextEntry}>
                     <Feather
                         name="eye"
                         color="#4ea3fd"
