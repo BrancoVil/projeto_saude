@@ -17,25 +17,49 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { StackNavigator } from "react-navigation";
 import { NavigationContainer } from '@react-navigation/native';
 
-const TelaCadastro = props =>{
-    props.navigation.navigate('TelaCadastro')
+
+
+const TelaCards = props =>{
+    props.navigation.navigate('TelaCards')
 }
 
+const SignUp = props =>{
+    props.navigation.navigate('SignUp')
+}
+
+
 const Login = props => {
+
+    const [data, setData] = React.useState({
+        password:'',
+        secureTextEntry:true
+     });
+
+     const UpdateSecureTextEntry = () => {
+        setData({
+            ...data,
+            secureTextEntry: !data.secureTextEntry
+        });
+    }
+    
+    const handlePasswordChange = (val) => {
+        setData({
+            ...data,
+            password:val
+        });
+    }
+
     return(
         <ScrollView style={styles.container}>
-            <View style={styles.header}>
                 <LinearGradient
-                colors={['#ffb347', '#ffcc33']}
+                colors={['#024a97', '#4ea3fd']}
                 style={styles.gradient_header}
-                start={{x:2.0, y:0.8}}>           
-            <Image source={require('../Login/logo.png')}
+                start={{x:0.7, y:0.6}}>           
+            <Image source={require('../Login/logo1.png')}
                     style={styles.img}></Image>
                 <Text style={styles.text_header}>Bem-Vindo!</Text>
                 </LinearGradient>
-            </View>
             <View style={styles.footer}>
-                <Text style={styles.text_footer}>Atendente</Text>
                 <View style={styles.action}>
                     <Feather
                         name="user"
@@ -48,34 +72,44 @@ const Login = props => {
                         autoCapitalize='none'
                     />
                 </View>
-                <Text style={[styles.text_footer, {
-                    marginTop: 35
-                }]}>Senha</Text>
+                <View style={{marginTop:35}}/>
             <View style={styles.action}>
                     <Feather
-                        name="key"
+                        name="lock"
                         color="#000"
-                        size={28}
+                        size={25}
                         />
                     <TextInput
-                        placeholder="Insira sua senha"
-                        secureTextEntry={true}
+                        placeholder="Senha"
+                        secureTextEntry={data.secureTextEntry ? true : false}
                         style={styles.textInput}
                         autoCapitalize='none'
+                        onChangeText={(val) => handlePasswordChange(val)}
                     />
-                <TouchableOpacity>
+                <TouchableOpacity
+                onPress={UpdateSecureTextEntry}>
                     <Feather
                         name="eye"
-                        color="#ffe200"
+                        color="#4ea3fd"
                         size={20}
                     />
                 </TouchableOpacity>
             </View>
                 <View style={styles.button}>
+                    <TouchableOpacity>
+                    <Text style={{alignSelf:'center', paddingBottom:25, fontSize:15, color:'#024a97', textDecorationLine:'underline'}}>Esqueceu a senha?</Text>
+                    </TouchableOpacity>
                     <TouchableOpacity
                     style={styles.signIn}
-                    onPress={() => TelaCadastro(props)}>
+                    onPress={() => TelaCards(props)}>
                             <Text style={styles.textSign}>ENTRAR</Text>
+                            <Feather
+                                name="log-in"
+                                size={15}
+                                color='white' style={{paddingLeft:10}}/>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.signIn1} onPress={() => SignUp (props)}>
+                            <Text style={{fontSize:20, alignContent:'center', color:'#4ea3fd'}}>Cadastre-se</Text>
                     </TouchableOpacity>
                 </View>
             </View>

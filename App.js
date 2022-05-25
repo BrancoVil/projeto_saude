@@ -1,7 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import Login from './screens/Login';
-import TelaCadastro from './screens/TelaCadastro';
+import SignUp from './screens/SignUp';
+import TelaCards from './screens/TelaCards';
 import FormCadastro from './screens/FormCadastro';
 import TelaPaciente from './screens/TelaPaciente';
 
@@ -22,11 +23,15 @@ export default function App() {
         options={{headerShown:false}} 
         name="Login" 
         component={Login}/>
+        <Stack.Screen
+        options={{headerShown:false}}
+        name='SignUp'
+        component={SignUp}/>
         <Stack.Screen 
-        name="TelaCadastro" 
-        component={TelaCadastro} 
+        name="TelaCards" 
+        component={TelaCards} 
         options={{title: 'Pacientes',
-        headerStyle:{backgroundColor:'#205DB8'}, 
+        headerStyle:{backgroundColor:'#4ea3fd'}, 
         headerTitleAlign:"center",
         headerTintColor:'#fff'
         }}/>
@@ -34,7 +39,7 @@ export default function App() {
         name="FormCadastro" 
         component={FormCadastro} 
         options={{title: 'Cadastrar informações',
-        headerStyle:{backgroundColor:'#205DB8'}, 
+        headerStyle:{backgroundColor:'#4ea3fd'}, 
         headerTitleAlign:"center",
         headerTintColor:'#fff'
         }}/>
@@ -42,7 +47,7 @@ export default function App() {
         name="TelaPaciente"
         component={TelaPaciente}
         options={{title: 'Informações da consulta',
-        headerStyle:{backgroundColor:'#205DB8'},
+        headerStyle:{backgroundColor:'#4ea3fd'},
         headerTitleAlign:'center',
         headerTintColor:'#fff'}}/>
       </Stack.Navigator>
