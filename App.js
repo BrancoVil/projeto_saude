@@ -3,6 +3,7 @@ import React from 'react';
 import Login from './screens/Login';
 import TelaCadastro from './screens/TelaCadastro';
 import FormCadastro from './screens/FormCadastro';
+import TelaPaciente from './screens/TelaPaciente';
 
 import { createStackNavigator } from 'react-navigation-stack';
 import { useNavigation } from '@react-navigation/native';
@@ -37,6 +38,13 @@ export default function App() {
         headerTitleAlign:"center",
         headerTintColor:'#fff'
         }}/>
+        <Stack.Screen
+        name="TelaPaciente"
+        component={TelaPaciente}
+        options={{title: 'Informações da consulta',
+        headerStyle:{backgroundColor:'#205DB8'},
+        headerTitleAlign:'center',
+        headerTintColor:'#fff'}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -7,69 +7,71 @@ import {
     TouchableOpacity,
     TextInput,
     Dimensions,
-    Image
+    Image,
+    ScrollView
 } from 'react-native';
 import styles from './styles';
 import {LinearGradient} from 'expo-linear-gradient';
 import Feather from 'react-native-vector-icons/Feather';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
+const TelaPaciente = props =>{
+    props.navigation.navigate('TelaPaciente')
+}
+
 
 const FormCadastro = props => {
 
     return(
-            <View style={styles.footer}>
-                <Text style={styles.text_footer}>Nome Completo</Text>
-                <View style={styles.action}>
+            <ScrollView style={styles.footer}>
+                <Text style={styles.text_footer}>Nome</Text>
                     <TextInput
-                        placeholder="Nome Completo"
+                        placeholder="Preencha o campo"
                         style={styles.textInput}
                         autoCapitalize='none'
                     />
-                </View>
                 <Text style={styles.text_footer}>CPF</Text>
-                <View style={styles.action}>
                     <TextInput
                         keyboardType="numeric"
-                        placeholder="CPF"
+                        placeholder="Preencha o campo"
                         style={styles.textInput}
                         autoCapitalize='none'
                     />
-                </View>
-                <Text style={styles.text_footer}>Atendente</Text>
-                <View style={styles.action}>
+                <Text style={styles.text_footer}>Cartão do Sus</Text>
                     <TextInput
-                        placeholder="Usuário"
+                        placeholder="Preencha o campo"
                         style={styles.textInput}
                         autoCapitalize='none'
                     />
-                </View>
-                <Text style={styles.text_footer}>Atendente</Text>
-                <View style={styles.action}>
+                <Text style={styles.text_footer}>Endereço</Text>
                     <TextInput
-                        placeholder="Usuário"
+                        placeholder="Preencha o campo"
                         style={styles.textInput}
                         autoCapitalize='none'
                     />
-                </View>
                 <Text style={styles.text_footer}>Atendente</Text>
-                <View style={styles.action}>
                     <TextInput
-                        placeholder="Usuário"
+                        placeholder="Preencha o campo"
                         style={styles.textInput}
                         autoCapitalize='none'
                     />
-                </View>
+                <Text style={styles.text_footer}>Idade</Text>
+                    <TextInput
+                        placeholder="Preencha o campo"
+                        style={styles.textInput}
+                        autoCapitalize='none'
+                    />
                 <View style={styles.gradient}>
                 <LinearGradient
                         colors={['#205DB8', '#729fe2']}
                         style={styles.signIn}>
-                    <TouchableOpacity>
+                    <TouchableOpacity
+                    onPress={() => TelaPaciente(props) }>
                         <Text style={styles.textSign}>CADASTRAR</Text>
                     </TouchableOpacity>
                 </LinearGradient>
                 </View>
-            </View>
+            </ScrollView>
     )
 }
 
