@@ -19,12 +19,9 @@ import { NavigationContainer } from '@react-navigation/native';
 
 
 
-const TelaCards = props =>{
-    props.navigation.navigate('TelaCards')
-}
 
-const SignUp = props =>{
-    props.navigation.navigate('SignUp')
+const TelaBuscar = props =>{
+    props.navigation.navigate('TelaBuscar')
 }
 
 
@@ -55,7 +52,7 @@ const Login = props => {
                 colors={['#024a97', '#4ea3fd']}
                 style={styles.gradient_header}
                 start={{x:0.7, y:0.6}}>           
-            <Image source={require('../Login/logo2.png')}
+                <Image source={require('../Login/logo2.png')}
                     style={styles.img}></Image>
                 <Text style={styles.text_header}>Bem-Vindo!</Text>
                 </LinearGradient>
@@ -67,7 +64,7 @@ const Login = props => {
                         size={25}
                         />
                     <TextInput
-                        placeholder="Usuário"
+                        placeholder="CPF"
                         style={styles.textInput}
                         autoCapitalize='none'
                     />
@@ -95,14 +92,14 @@ const Login = props => {
                     />
                 </TouchableOpacity>
             </View>
+                 <TouchableOpacity>
+                    <Text style={{ paddingTop:35, paddingBottom:25, fontSize:15, color:'#024a97', textDecorationLine:'underline'}}>Esqueceu a senha?</Text>
+                </TouchableOpacity>
                 <View style={styles.button}>
-                    <TouchableOpacity>
-                    <Text style={{ paddingBottom:25, fontSize:15, color:'#024a97', textDecorationLine:'underline'}}>Esqueceu a senha?</Text>
-                    </TouchableOpacity>
                     <View style={{alignItems:'center'}}>
                     <TouchableOpacity
                     style={styles.signIn}
-                    onPress={() => TelaCards(props)}>
+                    onPress={() => TelaBuscar (props)}>
                             <Text style={styles.textSign}>ENTRAR</Text>
                             <Feather
                                 name="log-in"

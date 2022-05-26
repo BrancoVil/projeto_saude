@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import Login from './screens/Login';
 import SignUp from './screens/SignUp';
-import TelaCards from './screens/TelaCards';
+import TelaBuscar from './screens/TelaBuscar';
 import FormCadastro from './screens/FormCadastro';
 import TelaPaciente from './screens/TelaPaciente';
 
@@ -10,9 +10,10 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { useNavigation } from '@react-navigation/native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { StackRouter } from 'react-navigation';
+import Routes from './src/Routes';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-
+const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -28,11 +29,10 @@ export default function App() {
         name='SignUp'
         component={SignUp}/>
         <Stack.Screen 
-        name="TelaCards" 
-        component={TelaCards} 
-        options={{title: 'Pacientes',
+        name="TelaBuscar" 
+        component={TelaBuscar} 
+        options={{title: 'Busca e cadastro',
         headerStyle:{backgroundColor:'#4ea3fd'}, 
-        headerTitleAlign:"center",
         headerTintColor:'#fff'
         }}/>
         <Stack.Screen 
@@ -46,9 +46,8 @@ export default function App() {
         <Stack.Screen
         name="TelaPaciente"
         component={TelaPaciente}
-        options={{title: 'Informações da consulta',
+        options={{title: 'Paciente cadastrado',
         headerStyle:{backgroundColor:'#4ea3fd'},
-        headerTitleAlign:'center',
         headerTintColor:'#fff'}}/>
       </Stack.Navigator>
     </NavigationContainer>

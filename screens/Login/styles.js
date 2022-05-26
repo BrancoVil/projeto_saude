@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
         container: { 
-            backgroundColor: '#f2f2f2',
+            backgroundColor: 'white',
             
           
         },
@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
             justifyContent: 'center',
         },
         footer: {
-            backgroundColor: '#f2f2f2',
+            backgroundColor: 'white',
             paddingHorizontal: 60,
             paddingVertical: 40,
             height:400,
@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
             fontWeight: 'bold',
             fontSize: 30,
             textAlign:'center',
+            marginTop:20
         },
         text_footer: {
             color: '#000',
@@ -60,8 +61,9 @@ const styles = StyleSheet.create({
         },
         img: {
             alignSelf:'center',
-            height: 198,
-            width:200
+            height: 110,
+            width:110,
+            marginTop:60
         },
         gradient_header : {
             height:250,
