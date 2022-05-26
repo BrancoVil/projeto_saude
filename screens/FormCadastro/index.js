@@ -26,38 +26,30 @@ const FormCadastro = props => {
             <ScrollView style={styles.footer}>
                 <View style={styles.cardform}>
                     <TextInput
-                        placeholder="Nome"
+                        placeholder="Pressão Arterial"
                         style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#4ea3fd'}}
                         autoCapitalize='none'
                     />
-                <View style={{flex:0, flexDirection:'row', marginBottom:10}}>
                     <TextInput
                         keyboardType="numeric"
-                        placeholder="CPF"
-                        style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'40%', borderColor:'#4ea3fd', marginTop:10,}}
-                        autoCapitalize='none'
-                    />
-                    <Text style={{paddingLeft:10, paddingRight:10, alignItems:'center', marginTop:20, fontSize:17}}>Ou</Text>
-                    <TextInput
-                        placeholder="Cartão do SUS"
-                        style={{fontSize:16, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'45%', borderColor:'#4ea3fd', marginTop:10}}
-                        autoCapitalize='none'
-                    />
-                </View>
-                    <TextInput
-                        placeholder="Endereço"
-                        style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#4ea3fd',}}
+                        placeholder="Glicemia"
+                        style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#4ea3fd', marginTop:10,}}
                         autoCapitalize='none'
                     />
                     <TextInput
-                        placeholder="Idade"
-                        style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#4ea3fd', marginTop:10}}
-                        autoCapitalize='none'
                         keyboardType="numeric"
+                        placeholder="Data de atendimento"
+                        style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#4ea3fd', marginTop:10}}
+                        autoCapitalize='none'
                     />
                     <TextInput
-                        placeholder="Quem está atendendo?"
+                        placeholder="Local de atendimento"
                         style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#4ea3fd', marginTop:10}}
+                        autoCapitalize='none'
+                    />
+                    <TextInput
+                        placeholder="Sacola de medicamentos"
+                        style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:130,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#4ea3fd', marginTop:10, textAlignVertical:'top',}}
                         autoCapitalize='none'
                     />
                     <TouchableOpacity style={styles.signIn} onPress={() => TelaPaciente(props) }>

@@ -2,12 +2,13 @@ import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
   card: {
-    height:250,
+    position:'relative',    
+    height:70,
     alignSelf:'center',
     marginTop:60,
     backgroundColor:'white',
     borderRadius:10,
-    width:'85%',
+    width:'70%',
     shadowColor: "#000000",
     shadowOpacity: 0.8,
     shadowRadius: 2,
@@ -49,7 +50,7 @@ const styles = StyleSheet.create({
   textSign: {
     color:'#4ea3fd',
     fontWeight: 'bold',
-    fontSize:30,
+    fontSize:20,
     borderBottomWidth:2,
     borderBottomColor:'#4ea3fd',
     alignSelf:'center'

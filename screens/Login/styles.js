@@ -4,6 +4,7 @@ import { StyleSheet } from 'react-native'
 const styles = StyleSheet.create({
         container: { 
             backgroundColor: '#f2f2f2',
+            
           
         },
         header: {
@@ -11,14 +12,15 @@ const styles = StyleSheet.create({
         },
         footer: {
             backgroundColor: '#f2f2f2',
-            paddingHorizontal: 20,
+            paddingHorizontal: 60,
             paddingVertical: 40,
-            height:420,
+            height:400,
+            marginTop:100
         },
         text_header: {
             color: '#fff',
             fontWeight: 'bold',
-            fontSize: 40,
+            fontSize: 30,
             textAlign:'center',
         },
         text_footer: {
@@ -39,27 +41,17 @@ const styles = StyleSheet.create({
             color: '#000',
         },
         button: {
-            paddingHorizontal:30,
-            paddingTop:30
+            paddingTop:30,
         },
         signIn: {
-            width: '100%',
+            width: '80%',
             height: 50,
             justifyContent: 'center',
             alignItems: 'center',
             borderRadius: 30,
             backgroundColor:'#4ea3fd',
-            flexDirection:'row'
-        },
-        signIn1: {
-            width:'100%',
-            height:50,
-            justifyContent:'center',
-            alignItems:'center',
-            borderWidth:2,
-            borderRadius:30,
-            borderColor:'#4ea3fd',
-            marginTop:20,
+            flexDirection:'row',
+            
         },
         textSign: {
             fontSize: 20,
@@ -68,12 +60,11 @@ const styles = StyleSheet.create({
         },
         img: {
             alignSelf:'center',
-            height: 150,
-            width:150
+            height: 198,
+            width:200
         },
         gradient_header : {
-            paddingTop:120,
-            height:350,
+            height:250,
             borderBottomRightRadius:90,
             borderBottomLeftRadius:90,
             

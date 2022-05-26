@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderRadius: 30,
         backgroundColor:'#4ea3fd',
-        marginTop:40
+        marginTop:30
       },
       textSign: {
           fontSize: 35,
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
 
       },
       cardform:{
-        height: 500,
+        height: 560,
         alignSelf:'center',
         marginTop: 50,
         backgroundColor:'#fdfdfd',

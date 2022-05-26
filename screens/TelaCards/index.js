@@ -24,24 +24,16 @@ const TelaCards = props => {
     return(
     <ScrollView style={{ backgroundColor:'#F5F5F5',}}>
     <View style={styles.card}>
-        <Feather 
-        name="user-plus"
-        size={45}
-        color='#4ea3fd'
-        style={{alignSelf:'center', paddingTop:30}}/>
-                <TouchableOpacity onPress={() => FormCadastro(props) }>
-                        <Text style={styles.textSign}>CADASTRAR</Text>
-                </TouchableOpacity>
-                        <Text style={styles.textSignf}>Cadastre aqui informações sobre os pacientes.</Text>
-                    <View style={{alignItems:'flex-end', paddingRight:20, paddingTop:10}}>
-                        <TouchableOpacity style={{borderRadius:40, width:'20%', backgroundColor:'#4ea3fd',}} onPress={() => FormCadastro(props) }>
-                            <Feather
-                            name="arrow-right"
-                            size={40}
-                            color='white'
-                            style={{alignSelf:'center'}}/>
-                        </TouchableOpacity>   
-                    </View>             
+        <TouchableOpacity onPress={() => FormCadastro(props) }>
+        <View style={{ flexDirection:'row', justifyContent:'space-between', alignItems:'center', position:'absolute', backgroundColor:'black'}}>
+            <Feather 
+            name="user-plus"
+            size={30}
+            color='#4ea3fd'
+            style={{alignSelf:'center', justifyContent:'center'}}/>
+                    <Text style={styles.textSign}>CADASTRAR</Text>
+                    </View>
+        </TouchableOpacity>      
     </View>
         <View style={styles.card1}>
         <Feather 
@@ -51,17 +43,13 @@ const TelaCards = props => {
         style={{alignSelf:'center', paddingTop:30}}/>
                 <TouchableOpacity>
                         <Text style={styles.textSign}>LISTAR</Text>
-                </TouchableOpacity>
-                        <Text style={styles.textSignf}>Aqui você acompanha os pacientes já cadastrados.</Text>
+                
+                        <Text style={styles.textSignf}></Text>
                     <View style={{alignItems:'flex-end', paddingRight:20, paddingTop:10}}>
                         <TouchableOpacity style={{borderRadius:40, width:'20%', backgroundColor:'#4ea3fd',}}>
-                            <Feather
-                            name="arrow-right"
-                            size={40}
-                            color='white'
-                            style={{alignSelf:'center'}}/>
                         </TouchableOpacity>   
                     </View>
+                </TouchableOpacity>
         </View>
     </ScrollView>
     )

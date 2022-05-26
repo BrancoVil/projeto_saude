@@ -55,7 +55,7 @@ const Login = props => {
                 colors={['#024a97', '#4ea3fd']}
                 style={styles.gradient_header}
                 start={{x:0.7, y:0.6}}>           
-            <Image source={require('../Login/logo1.png')}
+            <Image source={require('../Login/logo2.png')}
                     style={styles.img}></Image>
                 <Text style={styles.text_header}>Bem-Vindo!</Text>
                 </LinearGradient>
@@ -97,8 +97,9 @@ const Login = props => {
             </View>
                 <View style={styles.button}>
                     <TouchableOpacity>
-                    <Text style={{alignSelf:'center', paddingBottom:25, fontSize:15, color:'#024a97', textDecorationLine:'underline'}}>Esqueceu a senha?</Text>
+                    <Text style={{ paddingBottom:25, fontSize:15, color:'#024a97', textDecorationLine:'underline'}}>Esqueceu a senha?</Text>
                     </TouchableOpacity>
+                    <View style={{alignItems:'center'}}>
                     <TouchableOpacity
                     style={styles.signIn}
                     onPress={() => TelaCards(props)}>
@@ -108,9 +109,7 @@ const Login = props => {
                                 size={15}
                                 color='white' style={{paddingLeft:10}}/>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.signIn1} onPress={() => SignUp (props)}>
-                            <Text style={{fontSize:20, alignContent:'center', color:'#4ea3fd'}}>Cadastre-se</Text>
-                    </TouchableOpacity>
+                    </View>
                 </View>
             </View>
         </ScrollView>
