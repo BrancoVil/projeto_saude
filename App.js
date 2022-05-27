@@ -3,7 +3,7 @@ import React from 'react';
 import Login from './screens/Login';
 import ListarPacientes from './screens/ListaPacientes';
 import TelaBuscar from './screens/TelaBuscar';
-import FormCadastro from './screens/FormCadastro';
+import FormCadastro from './screens/FormConsulta';
 import TelaPaciente from './screens/TelaPaciente';
 import ConsultaPaciente from './screens/ConsultaPaciente';
 
@@ -31,12 +31,13 @@ export default function App() {
         options={{headerShown:false}}
         name='ListarPacientes'
         component={ListarPacientes}/>
-        <Stack.Screen 
+        <Stack.Screen
         name="TelaBuscar" 
         component={Routes} 
         options={{title: 'Busca e cadastro',
-        headerStyle:{backgroundColor:'#4ea3fd'}, 
-        headerTintColor:'#fff'
+        headerStyle:{backgroundColor:'#ffb246'}, 
+        headerTintColor:'#fff',
+        headerBackVisible:false
         }}/>
         <Stack.Screen 
         name="FormCadastro" 

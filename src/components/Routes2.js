@@ -2,8 +2,10 @@ import React from "react";
 import { View } from "react-native-animatable";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { BottomTabBar } from "@react-navigation/bottom-tabs";
+import Feather from 'react-native-vector-icons/Feather';
 import TelaPaciente from "../../screens/TelaPaciente";
 import ConsultaPaciente from "../../screens/ConsultaPaciente";
+import FormCadastro from '../../screens/FormConsulta';
 
 
 
@@ -19,13 +21,19 @@ export default function Routes2(){
             ),}}/>
             <Tab.Screen name="Editar" 
             component={ConsultaPaciente} 
-            options={{headerShown:false}}/>
+            options={{headerShown:false, tabBarIcon: ({ color, size }) => (
+                <Feather name="edit" color={color} size={size} />
+              ), tabBarActiveTintColor:'#ffb246',}}/>
             <Tab.Screen name="Consulta" 
-            component={ConsultaPaciente} 
-            options={{headerShown:false}}/>
+            component={FormCadastro} 
+            options={{headerShown:false, tabBarIcon: ({ color, size }) => (
+                <Feather name="plus-square" color={color} size={size} />
+              ), tabBarActiveTintColor:'#ffb246',}}/>
             <Tab.Screen name="Encaminhar" 
             component={ConsultaPaciente} 
-            options={{headerShown:false}}/>
+            options={{headerShown:false, tabBarIcon: ({ color, size }) => (
+                <Feather name="share" color={color} size={size} />
+              ), tabBarActiveTintColor:'#ffb246',}}/>
         </Tab.Navigator>
     )
 }
