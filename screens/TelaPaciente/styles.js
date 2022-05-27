@@ -16,12 +16,12 @@ cardusuario:{
   borderRadius:30,
   alignItems:'center',
   justifyContent:'center',
-  shadowColor: "black",
-  shadowOpacity: 1.0,
+  shadowColor: "grey",
+  shadowOpacity: 0.6,
   shadowRadius: 2,
   shadowOffset: {
-  height: 5,
-  width: 3,},
+  height: 1,
+  width: 4,},
   elevation:5,
 },
 textinputshadow:{
@@ -30,11 +30,11 @@ textinputshadow:{
   height:40,
   backgroundColor:'#f2f2f2', 
   marginBottom:20,
-  shadowColor: "black",
-  shadowOpacity: 1.0,
-  shadowRadius: 2,
+  shadowColor: "grey",
+  shadowOpacity: 0.6,
+  shadowRadius: 1,
   shadowOffset: {
-  height: 5,
+  height: 1,
   width: 3,},
   elevation:5,
 
@@ -44,12 +44,12 @@ cardconsulta:{
   marginTop:50,
   backgroundColor:'#DAECFF',
   borderRadius:20,
-  shadowColor: "black",
-  shadowOpacity: 1.0,
-  shadowRadius: 2,
+  shadowColor: "grey",
+  shadowOpacity: 0.6,
+  shadowRadius: 1,
   shadowOffset: {
-  height: 5,
-  width: 3,},
+  height: 1,
+  width: 2,},
   elevation:5,
   paddingHorizontal:20
 }

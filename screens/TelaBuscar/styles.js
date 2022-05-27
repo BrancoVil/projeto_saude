@@ -4,7 +4,6 @@ const styles = StyleSheet.create({
 
 container:{
   flex:1,
-  justifyContent:'center',
   paddingHorizontal:40,
   backgroundColor:'white',
   paddingBottom:170
@@ -18,13 +17,13 @@ textinput: {
   paddingLeft:40,
   marginTop:70,
   shadowColor: "black",
-  shadowOpacity: 1.0,
+  shadowOpacity: 0.2,
   shadowRadius: 2,
   shadowOffset: {
-  height: 5,
-  width: 3,},
+  height: 1,
+  width: 5,},
   elevation:5,
-  width:'100%'
+  width:'100%',
 },
 button: {
   borderWidth:1,
@@ -44,7 +43,7 @@ buttontext:{
   color:'white',
 },
 img: {
-  height:237,
+  height:267,
   width:661,
   alignSelf:'center',
 }

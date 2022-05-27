@@ -5,27 +5,6 @@ const styles = StyleSheet.create({
           flex:1,
           backgroundColor: '#f2f2f2',
           paddingHorizontal: 0,
-          marginTop:20
-      },
-      text_footer: {
-          color: '#000',
-          fontSize:25,
-          alignSelf:'center',
-          paddingBottom:20,
-          paddingTop:20
-          
-        },
-      action: {
-          flexDirection:'center',
-          marginTop: 10,
-          borderBottomWidth: 1,
-          borderTopWidth:1,
-          borderBottomColor: '#205DB8',
-          paddingBottom: 10
-      },
-      button: {
-          alignItems: 'center',
-          marginTop: 50
       },
       signIn: {
         width: '80%',
@@ -37,17 +16,8 @@ const styles = StyleSheet.create({
         backgroundColor:'#ffb246',
         marginTop:30
       },
-      textSign: {
-          fontSize: 35,
-          fontWeight: 'bold',
-          color:'white',
-      },
-      gradient:{
-          paddingTop:20
-
-      },
       cardform:{
-        height: 560,
+        height: 570,
         alignSelf:'center',
         marginTop: 50,
         backgroundColor:'#fdfdfd',
@@ -61,7 +31,7 @@ const styles = StyleSheet.create({
           width: 1},
         elevation:4,
         marginBottom:10,
-        paddingTop:50,
+        paddingTop:20,
         paddingHorizontal:15,
       }
   });
