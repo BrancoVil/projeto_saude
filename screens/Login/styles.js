@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native'
 const styles = StyleSheet.create({
         container: { 
             backgroundColor: 'white',
-            
+            alignContent:'center',
           
         },
         header: {
@@ -12,10 +12,10 @@ const styles = StyleSheet.create({
         },
         footer: {
             backgroundColor: 'white',
-            paddingHorizontal: 60,
-            paddingVertical: 40,
-            height:400,
-            marginTop:100
+            paddingHorizontal: 50,
+            height:340,
+            marginTop:100,
+            alignContent:'center'
         },
         text_header: {
             color: '#fff',
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
             justifyContent: 'center',
             alignItems: 'center',
             borderRadius: 30,
-            backgroundColor:'#4ea3fd',
+            backgroundColor:'#ffb246',
             flexDirection:'row',
             
         },
@@ -61,9 +61,9 @@ const styles = StyleSheet.create({
         },
         img: {
             alignSelf:'center',
-            height: 110,
-            width:110,
-            marginTop:60
+            height: 120,
+            width:190,
+            marginTop:80
         },
         gradient_header : {
             height:250,

@@ -49,12 +49,11 @@ const Login = props => {
     return(
         <ScrollView style={styles.container}>
                 <LinearGradient
-                colors={['#024a97', '#4ea3fd']}
+                colors={['#ffc935', '#ffb246']}
                 style={styles.gradient_header}
                 start={{x:0.7, y:0.6}}>           
-                <Image source={require('../Login/logo2.png')}
+                <Image source={require('../Login/logo.png')}
                     style={styles.img}></Image>
-                <Text style={styles.text_header}>Bem-Vindo!</Text>
                 </LinearGradient>
             <View style={styles.footer}>
                 <View style={styles.action}>
@@ -87,7 +86,7 @@ const Login = props => {
                 onPress={UpdateSecureTextEntry}>
                     <Feather
                         name="eye"
-                        color="#4ea3fd"
+                        color="#ffb246"
                         size={20}
                     />
                 </TouchableOpacity>
@@ -108,6 +107,12 @@ const Login = props => {
                     </TouchableOpacity>
                     </View>
                 </View>
+            </View>
+            <View style={{alignItems:'center', justifyContent:'center', flexDirection:'row'}}>
+            <Image source={require('../Login/logopassira.png')}
+            style={{height:45, width:170, marginTop:30 }}/>
+            <Image source={require('../Login/logonaassau.png')}
+            style={{height:47, width:70, marginTop:30, borderLeftWidth:1, borderColor:'blue'}}/>
             </View>
         </ScrollView>
     )
