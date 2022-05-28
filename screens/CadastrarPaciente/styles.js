@@ -1,6 +1,11 @@
 import { StyleSheet } from 'react-native' 
 
 const styles = StyleSheet.create({
+      footer: {
+          flex:1,
+          backgroundColor: '#f2f2f2',
+          paddingHorizontal: 0,
+      },
       signIn: {
         width: '80%',
         height: 50,
@@ -8,11 +13,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 30,
-        backgroundColor:'#4ea3fd',
-        marginTop:40
+        backgroundColor:'#ffb246',
+        marginTop:30
       },
       cardform:{
-        height: 500,
+        height: 570,
         alignSelf:'center',
         marginTop: 50,
         backgroundColor:'#fdfdfd',
@@ -26,9 +31,9 @@ const styles = StyleSheet.create({
           width: 1},
         elevation:4,
         marginBottom:10,
-        paddingTop:50,
+        paddingTop:20,
         paddingHorizontal:15,
-      },
+      }
   });
 
 export default styles

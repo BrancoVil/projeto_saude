@@ -1,17 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import Login from './screens/Login';
-import SignUp from './screens/SignUp';
-import TelaCards from './screens/TelaCards';
-import FormCadastro from './screens/FormCadastro';
+import ListarPacientes from './screens/ListaPacientes';
+import TelaBuscar from './screens/TelaBuscar';
+import FormCadastro from './screens/FormConsulta';
 import TelaPaciente from './screens/TelaPaciente';
+import ConsultaPaciente from './screens/ConsultaPaciente';
 
 import { createStackNavigator } from 'react-navigation-stack';
 import { useNavigation } from '@react-navigation/native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { StackRouter } from 'react-navigation';
+import Routes from './src/Routes';
+import Routes2 from './src/components/Routes2';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+const Tab=  createBottomTabNavigator();
 
 const Stack = createNativeStackNavigator();
 
@@ -25,15 +29,15 @@ export default function App() {
         component={Login}/>
         <Stack.Screen
         options={{headerShown:false}}
-        name='SignUp'
-        component={SignUp}/>
-        <Stack.Screen 
-        name="TelaCards" 
-        component={TelaCards} 
-        options={{title: 'Pacientes',
-        headerStyle:{backgroundColor:'#4ea3fd'}, 
-        headerTitleAlign:"center",
-        headerTintColor:'#fff'
+        name='ListarPacientes'
+        component={ListarPacientes}/>
+        <Stack.Screen
+        name="TelaBuscar" 
+        component={Routes} 
+        options={{title: 'Busca e cadastro',
+        headerStyle:{backgroundColor:'#ffb246'}, 
+        headerTintColor:'#fff',
+        headerBackVisible:false
         }}/>
         <Stack.Screen 
         name="FormCadastro" 
@@ -45,10 +49,9 @@ export default function App() {
         }}/>
         <Stack.Screen
         name="TelaPaciente"
-        component={TelaPaciente}
-        options={{title: 'Informações da consulta',
+        component={Routes2}
+        options={{title: 'Paciente cadastrado',
         headerStyle:{backgroundColor:'#4ea3fd'},
-        headerTitleAlign:'center',
         headerTintColor:'#fff'}}/>
       </Stack.Navigator>
     </NavigationContainer>

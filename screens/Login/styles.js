@@ -3,23 +3,26 @@ import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
         container: { 
-            backgroundColor: '#f2f2f2',
+            backgroundColor: 'white',
+            alignContent:'center',
           
         },
         header: {
             justifyContent: 'center',
         },
         footer: {
-            backgroundColor: '#f2f2f2',
-            paddingHorizontal: 20,
-            paddingVertical: 40,
-            height:420,
+            backgroundColor: 'white',
+            paddingHorizontal: 50,
+            height:340,
+            marginTop:100,
+            alignContent:'center'
         },
         text_header: {
             color: '#fff',
             fontWeight: 'bold',
-            fontSize: 40,
+            fontSize: 30,
             textAlign:'center',
+            marginTop:20
         },
         text_footer: {
             color: '#000',
@@ -39,27 +42,17 @@ const styles = StyleSheet.create({
             color: '#000',
         },
         button: {
-            paddingHorizontal:30,
-            paddingTop:30
+            paddingTop:30,
         },
         signIn: {
-            width: '100%',
+            width: '80%',
             height: 50,
             justifyContent: 'center',
             alignItems: 'center',
             borderRadius: 30,
-            backgroundColor:'#4ea3fd',
-            flexDirection:'row'
-        },
-        signIn1: {
-            width:'100%',
-            height:50,
-            justifyContent:'center',
-            alignItems:'center',
-            borderWidth:2,
-            borderRadius:30,
-            borderColor:'#4ea3fd',
-            marginTop:20,
+            backgroundColor:'#ffb246',
+            flexDirection:'row',
+            
         },
         textSign: {
             fontSize: 20,
@@ -68,12 +61,12 @@ const styles = StyleSheet.create({
         },
         img: {
             alignSelf:'center',
-            height: 150,
-            width:150
+            height: 120,
+            width:190,
+            marginTop:80
         },
         gradient_header : {
-            paddingTop:120,
-            height:350,
+            height:250,
             borderBottomRightRadius:90,
             borderBottomLeftRadius:90,
             
