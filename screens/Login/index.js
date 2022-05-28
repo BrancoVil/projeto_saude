@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
     View,
     Text,
@@ -17,37 +17,30 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { StackNavigator } from "react-navigation";
 import { NavigationContainer } from '@react-navigation/native';
 
+    const Login = props => {
 
+        const [cpf, setCpf] = useState('');
+        const [password, setPassword] = useState('');
 
-const TelaCards = props =>{
-    props.navigation.navigate('TelaCards')
-}
-
-const SignUp = props =>{
-    props.navigation.navigate('SignUp')
-}
-
-
-const Login = props => {
-
-    const [data, setData] = React.useState({
-        password:'',
-        secureTextEntry:true
-     });
-
-     const UpdateSecureTextEntry = () => {
-        setData({
-            ...data,
-            secureTextEntry: !data.secureTextEntry
-        });
-    }
-    
-    const handlePasswordChange = (val) => {
-        setData({
-            ...data,
-            password:val
-        });
-    }
+    const signIn = async()=>{
+        if(cpf!="" && password!=""){
+            props.navigation.navigate('TelaBuscar')
+            await fetch('https://ivfassessoria.com/repositories/api/api/usuario/read.php',{
+                method: 'POST',
+                headers:{
+                    'Accept': 'application/json',
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify({
+                    'cpf': cpf,
+                    'password': password
+                })
+            }).then(res => res.json())
+            .then(resData =>{
+                setMessage(resData.message);
+            })
+        }
+    }   
 
     return(
         <ScrollView style={styles.container}>
@@ -69,7 +62,10 @@ const Login = props => {
                     <TextInput
                         placeholder="Usuário"
                         style={styles.textInput}
-                        autoCapitalize='none'
+                        id="username"
+                        name="username"
+                        value={cpf}
+                        onChangeText={(cpf) => setCpf(cpf)}
                     />
                 </View>
                 <View style={{marginTop:35}}/>
@@ -81,19 +77,14 @@ const Login = props => {
                         />
                     <TextInput
                         placeholder="Senha"
-                        secureTextEntry={data.secureTextEntry ? true : false}
+                        id="password"
+                        name="password"
                         style={styles.textInput}
                         autoCapitalize='none'
-                        onChangeText={(val) => handlePasswordChange(val)}
+                        secureTextEntry={true}
+                        value={password}
+                        onChangeText={(password) => setPassword(password)}
                     />
-                <TouchableOpacity
-                onPress={UpdateSecureTextEntry}>
-                    <Feather
-                        name="eye"
-                        color="#4ea3fd"
-                        size={20}
-                    />
-                </TouchableOpacity>
             </View>
                 <View style={styles.button}>
                     <TouchableOpacity>
@@ -101,18 +92,15 @@ const Login = props => {
                     </TouchableOpacity>
                     <TouchableOpacity
                     style={styles.signIn}
-                    onPress={() => TelaCards(props)}>
+                    onPress={signIn()}>
                             <Text style={styles.textSign}>ENTRAR</Text>
                             <Feather
                                 name="log-in"
                                 size={15}
                                 color='white' style={{paddingLeft:10}}/>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.signIn1} onPress={() => SignUp (props)}>
-                            <Text style={{fontSize:20, alignContent:'center', color:'#4ea3fd'}}>Cadastre-se</Text>
-                    </TouchableOpacity>
                 </View>
-            </View>
+            </View>    
         </ScrollView>
     )
 }
