@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { TextInputMask } from "react-native-masked-text";
 import {
     View,
     Text,
@@ -83,13 +84,13 @@ const TelaBuscar = props =>{
                         color="#000"
                         size={25}
                         />
-                    <TextInput
+                    <TextInputMask
                         placeholder="CPF"
                         style={styles.textInput}
                         id="cpf"
                         name="cpf"
-                        keyboardType="numeric"
                         value={cpf}
+                        type={'cpf'}
                         onChangeText={(cpf) => setCpf(cpf)}
                     />
                 </View>
@@ -106,7 +107,7 @@ const TelaBuscar = props =>{
                         name="password"
                         style={styles.textInput}
                         autoCapitalize='none'
-                        secureTextEntry={true}
+                        secureTextEntry={data.secureTextEntry ? true : false}
                         value={password}
                         onChangeText={(password) => setPassword(password)}
                     />
