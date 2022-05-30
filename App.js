@@ -43,7 +43,7 @@ export default function App() {
         name="FormCadastro" 
         component={FormCadastro} 
         options={{title: 'Cadastrar informações',
-        headerStyle:{backgroundColor:'#4ea3fd'}, 
+        headerStyle:{backgroundColor:'#ffb246'}, 
         headerTitleAlign:"center",
         headerTintColor:'#fff'
         }}/>
@@ -51,7 +51,7 @@ export default function App() {
         name="TelaPaciente"
         component={Routes2}
         options={{title: 'Paciente cadastrado',
-        headerStyle:{backgroundColor:'#4ea3fd'},
+        headerStyle:{backgroundColor:'#ffb246'},
         headerTintColor:'#fff'}}/>
       </Stack.Navigator>
     </NavigationContainer>

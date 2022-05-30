@@ -16,9 +16,9 @@ export default function Routes2(){
     <Tab.Navigator>
             <Tab.Screen name="Paciente Cadastrado" 
             component={TelaPaciente} 
-            options={{headerShown:false, tabBarButton: () => (
-                <View style={{width:0, height:0}}></View>
-            ),}}/>
+            options={{headerShown:false, tabBarIcon: ({ color, size }) => (
+              <Feather name="user" color={color} size={size} />
+            ), tabBarActiveTintColor:'#ffb246',}}/>
             <Tab.Screen name="Editar" 
             component={ConsultaPaciente} 
             options={{headerShown:false, tabBarIcon: ({ color, size }) => (
@@ -37,3 +37,8 @@ export default function Routes2(){
         </Tab.Navigator>
     )
 }
+
+
+//tabBarButton: () => (
+  //<View style={{width:0, height:0}}></View>
+//)

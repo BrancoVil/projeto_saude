@@ -18,10 +18,11 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { StackNavigator } from "react-navigation";
 import { NavigationContainer } from '@react-navigation/native';
 
-    const Login = () => {
+    const Login = (props) => {
 
         const [cpf, setCpf] = useState('');
         const [password, setPassword] = useState('');
+        
 
     const signIn = async()=>{
         if(cpf!="" && password!=""){
@@ -61,12 +62,6 @@ const TelaBuscar = props =>{
         });
     }
     
-    const handlePasswordChange = (val) => {
-        setData({
-            ...data,
-            password:val
-        });
-    }
 
     return(
         <ScrollView style={styles.container}>

@@ -42,7 +42,7 @@ textinputshadow:{
 cardconsulta:{
   height:395, 
   marginTop:50,
-  backgroundColor:'#DAECFF',
+  backgroundColor:'#FFDD80',
   borderRadius:20,
   shadowColor: "grey",
   shadowOpacity: 0.6,

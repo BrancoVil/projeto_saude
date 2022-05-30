@@ -27,29 +27,29 @@ const FormCadastro = props => {
                 <View style={styles.cardform}>
                     <TextInput
                         placeholder="Pressão Arterial"
-                        style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#4ea3fd'}}
+                        style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#ffb246'}}
                         autoCapitalize='none'
                     />
                     <TextInput
                         keyboardType="numeric"
                         placeholder="Glicemia"
-                        style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#4ea3fd', marginTop:10,}}
+                        style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#ffb246', marginTop:10,}}
                         autoCapitalize='none'
                     />
                     <TextInput
                         keyboardType="numeric"
                         placeholder="Data de atendimento"
-                        style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#4ea3fd', marginTop:10}}
+                        style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#ffb246', marginTop:10}}
                         autoCapitalize='none'
                     />
                     <TextInput
                         placeholder="Local de atendimento"
-                        style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#4ea3fd', marginTop:10}}
+                        style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#ffb246', marginTop:10}}
                         autoCapitalize='none'
                     />
                     <TextInput
                         placeholder="Sacola de medicamentos"
-                        style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:130,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#4ea3fd', marginTop:10, textAlignVertical:'top',}}
+                        style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:130,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#ffb246', marginTop:10, textAlignVertical:'top',}}
                         autoCapitalize='none'
                     />
                     <TouchableOpacity style={styles.signIn} onPress={() => TelaPaciente(props) }>

@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 30,
-        backgroundColor:'#4ea3fd',
+        backgroundColor:'#ffb246',
         marginTop:30
       },
       textSign: {
