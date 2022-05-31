@@ -1,6 +1,5 @@
 import React from "react";
-import { View } from "react-native-animatable";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Button } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Feather from 'react-native-vector-icons/Feather';
@@ -9,7 +8,6 @@ import TelaBuscar from "../screens/TelaBuscar";
 import CadastrarPaciente from "../screens/CadastrarPaciente";
 import ListarPacientes from "../screens/ListaPacientes";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { Button } from "react-native-paper";
 
 const Tab = createBottomTabNavigator();
 
@@ -17,7 +15,7 @@ const Tab = createBottomTabNavigator();
 export default function Routes(){
     return(
         <Tab.Navigator>
-            <Tab.Screen name="Buscar Pacientes" 
+            <Tab.Screen name="Buscar" 
             component={TelaBuscar} 
             options={{headerShown:false, tabBarIcon: ({ color, size }) => (
                 <Feather name="search" color={color} size={size} />
@@ -32,6 +30,10 @@ export default function Routes(){
             options={{headerShown:false, tabBarIcon: ({ color, size }) => (
                 <Feather name="list" color={color} size={size} />
               ), tabBarActiveTintColor:'#ffb246'}}/>
+            <Tab.Screen 
+            name="Sair"
+            component={''}
+            />
         </Tab.Navigator>
       
     )
