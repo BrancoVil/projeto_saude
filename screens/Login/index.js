@@ -40,7 +40,7 @@ import { NavigationContainer } from '@react-navigation/native';
             }).then((response) => response.json())
             .then(responseJson =>{
                 if(responseJson=="ok"){
-                    alert("Veja bem vindo!")
+                    alert("Seja bem vindo!")
                     props.navigation.navigate('TelaBuscar')
                 }else{
                     alert(responseJson);
