@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
     View,
     SafeAreaView,
@@ -15,10 +15,28 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 
 
-
 const ListarPacientes = () => {
-
     
+    const[data, setData] = useState([]);
+
+    const getPaciente = async () => {
+        fetch('https://ivfassessoria.com/repositories/api/api/paciente/read.php', {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-type': 'application/json'
+         },
+        })
+        .then((response) => response.json())
+        .then((responseJson) => (
+            setData(responseJson.body)
+        ));
+    }
+
+    useEffect(() => {
+        getPaciente();
+    },[])
+
     return(
         <ScrollView style={styles.container}>
             <View style={styles.cardpaciente}>
@@ -49,7 +67,6 @@ const ListarPacientes = () => {
                 </View>
             </View>
         </ScrollView>
-    );
+    )
 }
-
 export default ListarPacientes
