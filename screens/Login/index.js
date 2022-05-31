@@ -27,20 +27,25 @@ import { NavigationContainer } from '@react-navigation/native';
     const signIn = async()=>{
         if(cpf!="" && password!=""){
             
-            await fetch('https://ivfassessoria.com/repositories/api/api/usuario/read.php',{
+            await fetch('https://ivfassessoria.com/repositories/api/api/usuario/login.php',{
                 method: 'POST',
-                headers:{
+                header:{
                     'Accept': 'application/json',
                     'Content-type': 'application/json'
                 },
                 body: JSON.stringify({
-                    'cpf': cpf,
-                    'senha': password
+                    cpf: cpf,
+                    senha: password
                 })
-            }).then(res => res.json())
-            .then(resData =>{
-                setMessage(resData.message);
-                props.navigation.navigate('TelaBuscar')
+            }).then((response) => response.json())
+            .then(responseJson =>{
+                if(responseJson=="ok"){
+                    alert("Veja bem vindo!")
+                    props.navigation.navigate('TelaBuscar')
+                }else{
+                    alert(responseJson);
+                }
+                
             })
         }
     }   
