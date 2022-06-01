@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     View,
     ScrollView,
@@ -16,9 +16,18 @@ import Feather from 'react-native-vector-icons/Feather';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 
-const TelaPaciente = props => {
+
+
+const TelaPaciente = ({route}) => {
+
+    const [cpf, setCpf] = useState([route.cpf]);
+    alert(cpf);
+
+    
+
     return(
         <ScrollView style={styles.containerusuario}>
+
             <View style={styles.cardusuario}>
               <Feather
               name="user"
@@ -26,7 +35,7 @@ const TelaPaciente = props => {
               color='#ffb246'/>   
             </View>
             <View style={{position:'absolute', width:'60%', marginTop:52, alignSelf:'flex-end' }}>
-                  <Text style={styles.textinputshadow}/>
+                  <Text style={styles.textinputshadow}>{route.cpf}</Text>
                   <Text style={styles.textinputshadow}/>
             </View>
             <View style={styles.cardconsulta}>
