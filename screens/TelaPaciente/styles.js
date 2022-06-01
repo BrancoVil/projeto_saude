@@ -40,7 +40,7 @@ textinputshadow:{
 
 },
 cardconsulta:{
-  height:395, 
+  height:400, 
   marginTop:50,
   backgroundColor:'#FFDD80',
   borderRadius:20,
@@ -51,7 +51,8 @@ cardconsulta:{
   height: 1,
   width: 2,},
   elevation:5,
-  paddingHorizontal:20
+  paddingHorizontal:20,
+  marginBottom:30
 }
   });
 

@@ -6,6 +6,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import TelaPaciente from "../../screens/TelaPaciente";
 import ConsultaPaciente from "../../screens/ConsultaPaciente";
 import FormCadastro from '../../screens/FormConsulta';
+import EditarPaciente from "../../screens/EditarPaciente";
 
 
 
@@ -20,7 +21,7 @@ export default function Routes2(){
               <Feather name="user" color={color} size={size} />
             ), tabBarActiveTintColor:'#ffb246',}}/>
             <Tab.Screen name="Editar" 
-            component={ConsultaPaciente} 
+            component={EditarPaciente} 
             options={{headerShown:false, tabBarIcon: ({ color, size }) => (
                 <Feather name="edit" color={color} size={size} />
               ), tabBarActiveTintColor:'#ffb246',}}/>

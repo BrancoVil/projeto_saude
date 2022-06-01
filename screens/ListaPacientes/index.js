@@ -51,11 +51,11 @@ const ListarPacientes = () => {
                     <Text style={{borderBottomWidth:1, height:24, width:180, borderRadius:10, borderColor:'grey', paddingLeft:20, marginTop:15}}>{paciente.cartaoSus}</Text>
                 </View>
                <View style={{flexDirection:'column', alignSelf:'center', marginLeft:20 }}>
-                <TouchableOpacity style={{backgroundColor:'#ffb246', borderRadius:5, borderColor:'white', borderWidth:1}}>
+                <TouchableOpacity style={{backgroundColor:'white', borderRadius:5, borderColor:'#ffb246', borderWidth:1}}>
                 <Feather
                 name="edit"
                 size={25}
-                color='white'
+                color='#ffb246'
                 style={{}}/>
                 </TouchableOpacity>
                 <TouchableOpacity style={{backgroundColor:'white', borderRadius:5, borderWidth:1, borderColor:'#ffb246', marginTop:5}}>

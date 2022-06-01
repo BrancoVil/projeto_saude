@@ -25,6 +25,7 @@ const FormCadastro = props => {
     return(
             <ScrollView style={styles.footer}>
                 <View style={styles.cardform}>
+                    <Text style={{fontSize:20, alignSelf:'center', marginBottom:20, color:'orange', fontWeight:'bold', marginTop:20}}>Cadastrar Consulta</Text>
                     <TextInput
                         placeholder="Pressão Arterial"
                         style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#ffb246'}}

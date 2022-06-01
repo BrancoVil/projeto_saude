@@ -5,7 +5,6 @@ const styles = StyleSheet.create({
           flex:1,
           backgroundColor: '#f2f2f2',
           paddingHorizontal: 0,
-          marginTop:20
       },
       signIn: {
         width: '80%',
@@ -17,15 +16,10 @@ const styles = StyleSheet.create({
         backgroundColor:'#ffb246',
         marginTop:30
       },
-      textSign: {
-          fontSize: 35,
-          fontWeight: 'bold',
-          color:'white',
-      },
       cardform:{
-        height: 560,
+        height: 570,
         alignSelf:'center',
-        marginTop: 20,
+        marginTop: 50,
         backgroundColor:'#fdfdfd',
         borderRadius:10,
         width:'90%',
@@ -37,6 +31,7 @@ const styles = StyleSheet.create({
           width: 1},
         elevation:4,
         marginBottom:10,
+        paddingTop:20,
         paddingHorizontal:15,
       }
   });
