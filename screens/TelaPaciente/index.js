@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Component, useState } from "react";
 import {
     View,
     ScrollView,
@@ -14,17 +14,13 @@ import styles from './styles';
 import {LinearGradient} from 'expo-linear-gradient';
 import Feather from 'react-native-vector-icons/Feather';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import {useNavigation} from "@react-navigation/native";
 
 
-
-
-const TelaPaciente = ({route}) => {
-
-    const [cpf, setCpf] = useState([route.cpf]);
-    alert(cpf);
-
+function TelaPaciente ({route}) {
+    const navigation = useNavigation();
     
-
+    
     return(
         <ScrollView style={styles.containerusuario}>
 
@@ -35,7 +31,7 @@ const TelaPaciente = ({route}) => {
               color='#ffb246'/>   
             </View>
             <View style={{position:'absolute', width:'60%', marginTop:52, alignSelf:'flex-end' }}>
-                  <Text style={styles.textinputshadow}>{route.cpf}</Text>
+                  <Text> {route.params?.cpf} </Text>
                   <Text style={styles.textinputshadow}/>
             </View>
             <View style={styles.cardconsulta}>

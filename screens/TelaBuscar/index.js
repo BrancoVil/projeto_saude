@@ -13,17 +13,28 @@ import {
 import styles from './styles';
 import Feather from 'react-native-vector-icons/Feather';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import { useNavigation } from "@react-navigation/native";
 
 
-const TelaPaciente = props =>{
+
+
+// const TelaPaciente = props =>{
   
-    props.navigation.navigate('TelaPaciente')
-}
+//     props.navigation.navigate('TelaPaciente')
+// }
 
 
-const TelaBuscar = ({navigation})=> {
+function TelaBuscar () {
 
-    const [cpf, setCpf] = useState('');
+    const navigation = useNavigation();
+    const [cpfPaciente, setCpfPaciente] = useState('');
+
+    
+
+    function Buscar(){
+        
+        navigation.navigate("TelaPaciente", {cpf: cpfPaciente});
+    }
 
     return (
     <ScrollView style={styles.container}>
@@ -37,8 +48,8 @@ const TelaBuscar = ({navigation})=> {
                     placeholder='CPF do Paciente'
                     underlineColorAndroid="transparent"
                     keyboardType="numeric"
-                    value={cpf}
-                    onChangeText={(cpf) => setCpf(cpf)}
+                    value={cpfPaciente}
+                    onChangeText={(cpfPaciente) => setCpfPaciente(cpfPaciente)}
                 />
             </View>
             <Feather
@@ -48,12 +59,7 @@ const TelaBuscar = ({navigation})=> {
             style={{position:'absolute', paddingTop:70, marginLeft:15}}/>
         </View>
             <TouchableOpacity style={styles.button}
-                 onPress={() => {
-                    navigation.navigate("TelaPaciente", {
-                        cpf: cpf,
-                        
-                    })
-                }}> 
+                 onPress={Buscar}> 
                 <Text style={styles.buttontext}>Buscar</Text>
             </TouchableOpacity>
     </ScrollView>
