@@ -25,7 +25,8 @@ cardusuario:{
   elevation:5,
 },
 textinputshadow:{
-  paddingLeft:10,
+  paddingLeft:13,
+  paddingTop:9,
   borderRadius:30, 
   height:40,
   backgroundColor:'#f2f2f2', 

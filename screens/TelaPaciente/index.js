@@ -56,18 +56,31 @@ useEffect(() => {
                     color='#ffb246' />
             </View>
             <View style={{ position: 'absolute', width: '60%', marginTop: 52, alignSelf: 'flex-end' }}>
-                <Text>{route.params?.cpf}</Text>
+                <Text style={{
+                    paddingLeft:13,
+                    paddingTop:9,
+                    borderRadius:30, 
+                    height:40,
+                    backgroundColor:'#f2f2f2', 
+                    marginBottom:20,
+                    shadowColor: "grey",
+                    shadowOpacity: 0.6,
+                    shadowRadius: 1,
+                    shadowOffset: {
+                    height: 1,
+                    width: 3,},
+                    elevation:5,}}>{route.params?.cpf}</Text>
                 <Text style={styles.textinputshadow} />
             </View>
             {Object.values(data.map(paciente => (
             <View style={styles.cardconsulta} key={paciente.id}>
                 <Text style={{ alignSelf: 'center', marginTop: 15, fontSize: 16, color: 'white' }}>Informações de consulta</Text>
-                <Text style={{ backgroundColor: '#f2f2f2', borderRadius: 30, marginTop: 10, height: 40 }} >{paciente.nome}</Text>
-                <Text style={{ backgroundColor: '#f2f2f2', borderRadius: 30, marginTop: 10, height: 40 }} >{paciente.cpf}</Text>
-                <Text style={{ backgroundColor: '#f2f2f2', borderRadius: 30, marginTop: 10, height: 40 }} >{paciente.cartaoSus}</Text>
-                <Text style={{ backgroundColor: '#f2f2f2', borderRadius: 30, marginTop: 10, height: 40 }} >{paciente.endereco}</Text>
-                <Text style={{ backgroundColor: '#f2f2f2', borderRadius: 30, marginTop: 10, height: 40 }} >{paciente.telefone}</Text>
-                <Text style={{ backgroundColor: '#f2f2f2', borderRadius: 30, marginTop: 10, height: 90 }} >{paciente.postoAtendimento}</Text>
+                <Text style={{ backgroundColor: '#f2f2f2', borderRadius: 30, marginTop: 10, height: 40, paddingLeft:13, paddingTop:9 }} >{paciente.nome}</Text>
+                <Text style={{ backgroundColor: '#f2f2f2', borderRadius: 30, marginTop: 10, height: 40, paddingLeft:13, paddingTop:9 }} >{paciente.cpf}</Text>
+                <Text style={{ backgroundColor: '#f2f2f2', borderRadius: 30, marginTop: 10, height: 40, paddingLeft:13, paddingTop:9 }} >{paciente.cartaoSus}</Text>
+                <Text style={{ backgroundColor: '#f2f2f2', borderRadius: 30, marginTop: 10, height: 40, paddingLeft:13, paddingTop:9 }} >{paciente.endereco}</Text>
+                <Text style={{ backgroundColor: '#f2f2f2', borderRadius: 30, marginTop: 10, height: 40, paddingLeft:13, paddingTop:9 }} >{paciente.telefone}</Text>
+                <Text style={{ backgroundColor: '#f2f2f2', borderRadius: 30, marginTop: 10, height: 90, paddingLeft:13, paddingTop:9 }} >{paciente.postoAtendimento}</Text>
             </View>
             )))}
             <View>
