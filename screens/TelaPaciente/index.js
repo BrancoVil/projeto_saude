@@ -25,7 +25,6 @@ function TelaPaciente({ route }) {
     const [data, setData] = useState([]);
 
     singleViewPaciente = async () => {
-        const url = 'https://ivfassessoria.com/repositories/api/api/paciente/readone.php?cpf='+route.params?.cpf;
         fetch('https://ivfassessoria.com/repositories/api/api/paciente/readone.php?cpf='+route.params?.cpf, {
             method: 'GET',
             headers: {
