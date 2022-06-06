@@ -12,31 +12,39 @@ import EditarPaciente from "../../screens/EditarPaciente";
 
 const Tab = createBottomTabNavigator();
 
-export default function Routes2(){
-    return(
+export default function Routes2() {
+  return (
     <Tab.Navigator>
-            <Tab.Screen name="Paciente Cadastrado" 
-            component={TelaPaciente} 
-            options={{headerShown:false, tabBarIcon: ({ color, size }) => (
-              <Feather name="user" color={color} size={size} />
-            ), tabBarActiveTintColor:'#ffb246',}}/>
-            <Tab.Screen name="Editar" 
-            component={EditarPaciente} 
-            options={{headerShown:false, tabBarIcon: ({ color, size }) => (
-                <Feather name="edit" color={color} size={size} />
-              ), tabBarActiveTintColor:'#ffb246',}}/>
-            <Tab.Screen name="Consulta" 
-            component={FormCadastro} 
-            options={{headerShown:false, tabBarIcon: ({ color, size }) => (
-                <Feather name="plus-square" color={color} size={size} />
-              ), tabBarActiveTintColor:'#ffb246',}}/>
-            <Tab.Screen name="Encaminhar" 
-            component={ConsultaPaciente} 
-            options={{headerShown:false, tabBarIcon: ({ color, size }) => (
-                <Feather name="share" color={color} size={size} />
-              ), tabBarActiveTintColor:'#ffb246',}}/>
-        </Tab.Navigator>
-    )
+      <Tab.Screen name="Paciente Cadastrado"
+        component={TelaPaciente}
+        options={{
+          headerShown: false, tabBarIcon: ({ color, size }) => (
+            <Feather name="user" color={color} size={size} />
+          ), tabBarActiveTintColor: '#ffb246',
+        }} />
+      <Tab.Screen name="Editar"
+        component={EditarPaciente}
+        options={{
+          headerShown: false, tabBarIcon: ({ color, size }) => (
+            <Feather name="edit" color={color} size={size} />
+          ), tabBarActiveTintColor: '#ffb246',
+        }} />
+      <Tab.Screen name="Consulta"
+        component={FormCadastro}
+        options={{
+          headerShown: false, tabBarIcon: ({ color, size }) => (
+            <Feather name="plus-square" color={color} size={size} />
+          ), tabBarActiveTintColor: '#ffb246',
+        }} />
+      <Tab.Screen name="Encaminhar"
+        component={ConsultaPaciente}
+        options={{
+          headerShown: false, tabBarIcon: ({ color, size }) => (
+            <Feather name="share" color={color} size={size} />
+          ), tabBarActiveTintColor: '#ffb246',
+        }} />
+    </Tab.Navigator>
+  )
 }
 
 

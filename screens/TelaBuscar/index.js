@@ -17,52 +17,67 @@ import { useNavigation } from "@react-navigation/native";
 
 
 
-
-// const TelaPaciente = props =>{
-  
-//     props.navigation.navigate('TelaPaciente')
-// }
-
-
-function TelaBuscar () {
+function TelaBuscar() {
 
     const navigation = useNavigation();
     const [cpfPaciente, setCpfPaciente] = useState('');
 
-    
 
-    function Buscar(){
-        
-        navigation.navigate("TelaPaciente", {cpf: cpfPaciente});
+
+    const Buscar = async () => {
+        if (cpfPaciente != "") {
+            await fetch('https://ivfassessoria.com/repositories/api/api/paciente/busca.php', {
+                method: 'POST',
+                header: {
+                    'Accept': 'application/json',
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify({
+                    cpf: cpfPaciente
+                    
+                })
+            }).then((response) => response.json())
+                .then(responseJson => {
+                    if (responseJson == "ok") {
+                        navigation.navigate('TelaPaciente', { cpf: cpfPaciente });
+                    } else {
+                        alert(responseJson);
+                        navigation.navigate('Cadastrar Pacientes');
+                    }
+
+                })
+
+            // navigation.navigate('TelaPaciente', { cpf: cpfPaciente });
+        }
     }
 
     return (
-    <ScrollView style={styles.container}>
-        <View>
-            <Image source={require('../TelaBuscar/imagem1.png')}
-             style={styles.img}></Image>
-        </View>
-        <View style={{flexDirection:'row', alignItems:'center', marginTop:20,}}>
-            <View style={{position:'absolute', alignContent:'center', width:'100%'}}>
-                <TextInput style={styles.textinput}
-                    placeholder='CPF do Paciente'
-                    underlineColorAndroid="transparent"
-                    keyboardType="numeric"
-                    value={cpfPaciente}
-                    onChangeText={(cpfPaciente) => setCpfPaciente(cpfPaciente)}
-                />
+        <ScrollView style={styles.container}>
+            <View>
+                <Image source={require('../TelaBuscar/imagem1.png')}
+                    style={styles.img}></Image>
             </View>
-            <Feather
-            name="search"
-            size={20}
-            color='grey'
-            style={{position:'absolute', paddingTop:70, marginLeft:15}}/>
-        </View>
+            <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 20, }}>
+                <View style={{ position: 'absolute', alignContent: 'center', width: '100%' }}>
+                    <TextInput style={styles.textinput}
+                        placeholder='CPF do Paciente'
+                        underlineColorAndroid="transparent"
+                        keyboardType="numeric"
+                        value={cpfPaciente}
+                        onChangeText={(cpfPaciente) => setCpfPaciente(cpfPaciente)}
+                    />
+                </View>
+                <Feather
+                    name="search"
+                    size={20}
+                    color='grey'
+                    style={{ position: 'absolute', paddingTop: 70, marginLeft: 15 }} />
+            </View>
             <TouchableOpacity style={styles.button}
-                 onPress={Buscar}> 
+                onPress={Buscar}>
                 <Text style={styles.buttontext}>Buscar</Text>
             </TouchableOpacity>
-    </ScrollView>
+        </ScrollView>
     )
 }
 
