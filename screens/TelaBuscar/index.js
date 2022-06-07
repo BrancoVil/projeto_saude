@@ -14,6 +14,7 @@ import styles from './styles';
 import Feather from 'react-native-vector-icons/Feather';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { useNavigation } from "@react-navigation/native";
+import { TextInputMask } from "react-native-masked-text";
 
 
 
@@ -59,12 +60,13 @@ function TelaBuscar() {
             </View>
             <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 20, }}>
                 <View style={{ position: 'absolute', alignContent: 'center', width: '100%' }}>
-                    <TextInput style={styles.textinput}
+                    <TextInputMask style={styles.textinput}
                         placeholder='CPF do Paciente'
                         underlineColorAndroid="transparent"
                         keyboardType="numeric"
                         value={cpfPaciente}
                         onChangeText={(cpfPaciente) => setCpfPaciente(cpfPaciente)}
+                        type={'cpf'}
                     />
                 </View>
                 <Feather

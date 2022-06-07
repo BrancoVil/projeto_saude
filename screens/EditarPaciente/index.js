@@ -73,12 +73,14 @@ const EditarPaciente = props => {
                         autoCapitalize='none'
                         onChangeText={(paciente) => setPaciente(paciente)}
                     />
-                    <TextInput
+                    <TextInputMask
                         keyboardType="numeric"
                         placeholder="CPF"
                         style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#ffb246', marginTop:10,}}
                         autoCapitalize='none'
                         onChangeText={(cpf) => setCpf(cpf)}
+                        type={'cpf'}
+                        value={cpf}
                     />
                     <TextInput
                         keyboardType="numeric"
@@ -93,12 +95,19 @@ const EditarPaciente = props => {
                         autoCapitalize='none'
                         onChangeText={(endereco) => setEndereco(endereco)}
                     />
-                    <TextInput
+                    <TextInputMask
                         keyboardType="numeric"
                         placeholder="Telefone"
                         style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#ffb246', marginTop:10}}
                         autoCapitalize='none'
                         onChangeText={(telefone) => setTelefone(telefone)}
+                        value={telefone}
+                        type={'cel-phone'}
+                        options={{
+                            maskType:'BRL',
+                            withDDD:true,
+                            dddMask:'(99)'
+                        }}
                     />
                     <TextInput
                         placeholder="Posto de atendimento"
@@ -106,12 +115,18 @@ const EditarPaciente = props => {
                         autoCapitalize='none'
                         onChangeText={(postoatendimento) => setPostoatendimento(postoatendimento)}
                     />
-                   <TextInput
+                   <TextInputMask
                         placeholder="Data de Nascimento"
                         keyboardType="numeric"
                         style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#ffb246', marginTop:10}}
                         autoCapitalize='none'
                         onChangeText={(datanascimento) => setDatanascimento(datanascimento)}
+                        value={datanascimento}
+                        type={'datetime'}
+                        options={{
+                            format: 'DD/MM/YYYY'
+                          }}
+                    
                     />
                     
                     <TouchableOpacity style={styles.signIn} onPress={(Cadastrar)}>
