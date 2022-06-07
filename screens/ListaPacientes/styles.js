@@ -8,11 +8,15 @@ const styles = StyleSheet.create({
         paddingHorizontal:15
     },
     cardpaciente:{
-        marginTop:40,
-        height:105,
+        marginTop:10,
+        height:100,
         backgroundColor:'#f2f2f2',
-        borderRadius:5,    
-        flexDirection:'row'    
+        borderRadius:15,    
+        flexDirection:'row',
+        shadowColor: "black",
+        shadowOpacity: 0.1,
+        shadowRadius: 1,
+        elevation:2,    
     }
 });
 

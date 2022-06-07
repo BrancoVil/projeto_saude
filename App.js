@@ -5,8 +5,8 @@ import FormCadastro from './screens/FormConsulta';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Routes from './src/Routes';
-import Routes2 from './src/components/Routes2';
 import TelaPaciente from './screens/TelaPaciente';
+import EditarPaciente from './screens/EditarPaciente';
 
 
 // const Tab = createBottomTabNavigator();
@@ -40,6 +40,25 @@ export default function App() {
             headerStyle: { backgroundColor: '#ffb246' },
             headerTintColor: '#fff'
           }} />
+
+        <Stack.Screen
+          name="EditarPaciente"
+          component={EditarPaciente}
+          options={{
+            title: 'Editar Paciente',
+            headerStyle: { backgroundColor: '#ffb246' },
+            headerTintColor: '#fff'
+          }} />
+
+        <Stack.Screen
+          name="ConsultaPaciente"
+          component={FormCadastro}
+          options={{
+            title: 'Cadastrar Consulta',
+            headerStyle: { backgroundColor: '#ffb246' },
+            headerTintColor: '#fff'
+          }} />
+          
       </Stack.Navigator>
     </NavigationContainer>
   );

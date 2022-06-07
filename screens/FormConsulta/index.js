@@ -15,10 +15,6 @@ import {LinearGradient} from 'expo-linear-gradient';
 import Feather from 'react-native-vector-icons/Feather';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-const TelaPaciente = props =>{
-    props.navigation.navigate('TelaPaciente')
-}
-
 
 const FormCadastro = props => {
 
@@ -53,7 +49,7 @@ const FormCadastro = props => {
                         style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:130,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#ffb246', marginTop:10, textAlignVertical:'top',}}
                         autoCapitalize='none'
                     />
-                    <TouchableOpacity style={styles.signIn} onPress={() => TelaPaciente(props) }>
+                    <TouchableOpacity style={styles.signIn}>
                             <Text style={{fontSize:20, alignContent:'center', color:'white'}}>Cadastrar</Text>
                     </TouchableOpacity>
                 </View>
