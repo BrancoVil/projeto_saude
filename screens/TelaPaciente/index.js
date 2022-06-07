@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {
     View,
     ScrollView,
@@ -16,7 +16,27 @@ import Feather from 'react-native-vector-icons/Feather';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 
-const TelaPaciente = props => {
+const TelaPaciente = (route) => {
+    const [cpf, setCpf] = useState('')
+
+    const buscarPaciente = async () => {
+        fetch('https://ivfassessoria.com/repositories/api/api/paciente/read.php?cpf=' + cpf, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-type': 'application/json'
+         },
+        })
+        .then((response) => response.json())
+        .then((responseJson) => (
+            alert(responseJson.body)
+        ));
+    }
+
+    useEffect(() => {
+         cpf = route
+        buscarPaciente()
+    })
     return(
         <ScrollView style={styles.containerusuario}>
             <View style={styles.cardusuario}>

@@ -46,11 +46,11 @@ const ListarPacientes = () => {
                 size={60}
                 color={'grey'}
                 style={{marginLeft:5, borderRightColor:'#ffb246', borderRightWidth:2, width:63, alignSelf:'center', marginRight:10}}/>
-                <View style={{alignSelf:'center', marginBottom:20}}>
+                <View style={{alignSelf:'center', marginBottom:20}} key={paciente.id}>
                     <Text style={{borderBottomWidth:1, height:30, width:180, borderRadius:10, borderColor:'grey', paddingLeft:15, marginTop:10, fontSize:20}}>{paciente.nomePacientes}</Text>
                     <Text style={{borderBottomWidth:1, height:24, width:180, borderRadius:10, borderColor:'grey', paddingLeft:20, marginTop:15}}>{paciente.cartaoSus}</Text>
                 </View>
-               <View style={{flexDirection:'column', alignSelf:'center', marginLeft:20 }}>
+               <View style={{flexDirection:'column', alignSelf:'center', marginLeft:20 }} key={paciente.id}>
                 <TouchableOpacity style={{backgroundColor:'#ffb246', borderRadius:5, borderColor:'white', borderWidth:1}}>
                 <Feather
                 name="edit"

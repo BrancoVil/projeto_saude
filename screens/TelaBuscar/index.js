@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
     View,
     Text,
@@ -14,11 +14,14 @@ import styles from './styles';
 import Feather from 'react-native-vector-icons/Feather';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-const TelaPaciente = props =>{
-    props.navigation.navigate('TelaPaciente')
-}
 
 const TelaBuscar = props => {
+
+    const[cpf, setCpf] = useState('');
+    
+  function Buscar (){
+    props.navigation.navigate('TelaPaciente', cpf)
+}
     return(
     <ScrollView style={styles.container}>
         <View>
@@ -36,10 +39,14 @@ const TelaBuscar = props => {
             name="search"
             size={20}
             color='grey'
-            style={{position:'absolute', paddingTop:70, marginLeft:15}}/>
+            style={{position:'absolute', paddingTop:70, marginLeft:15}}
+            value={cpf}
+            onChangeText={(cpf) => setCpf(cpf)}
+            />
+            
         </View>
             <TouchableOpacity style={styles.button}
-            onPress={() => TelaPaciente (props)}>
+            onPress={Buscar}>
                 <Text style={styles.buttontext}>Buscar</Text>
             </TouchableOpacity>
     </ScrollView>
