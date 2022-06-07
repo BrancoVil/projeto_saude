@@ -2,7 +2,7 @@ import React, { Component, useState, useEffect } from "react";
 import {
     View,
     ScrollView,
-    Text, 
+    Text,
     TouchableOpacity,
 } from 'react-native';
 import styles from './styles';
@@ -29,89 +29,95 @@ function TelaPaciente({ route }) {
     const [data, setData] = useState([]);
 
     singleViewPaciente = async () => {
-        fetch('https://ivfassessoria.com/repositories/api/api/paciente/readone.php?cpf='+route.params?.cpf, {
+        fetch('https://ivfassessoria.com/repositories/api/api/paciente/readone.php?cpf=' + route.params?.cpf, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
                 'Content-type': 'application/json'
             },
         })
-        .then((response) => response.json())
-        .then((responseJson) => (
-            paciente = [responseJson],
-            setData(paciente)
-        ));
+            .then((response) => response.json())
+            .then((responseJson) => (
+                paciente = [responseJson],
+                setData(paciente)
+            ));
     }
 
-useEffect(() => {
-     singleViewPaciente();
-},[])
-    
+    useEffect(() => {
+        singleViewPaciente();
+    }, [])
+
 
     return (
-        <ScrollView style={styles.containerusuario}> 
-            <View style={styles.cardusuario}>
-                <Feather
-                    name="user"
-                    size={105}
-                    color='#ffb246' />
-            </View>
-            <View style={{ position: 'absolute', width: '60%', marginTop: 52, alignSelf: 'flex-end',paddingHorizontal:20,}}>
-                <Text style={{
-                    paddingLeft:13,
-                    paddingTop:9,
-                    borderRadius:30, 
-                    height:40,
-                    backgroundColor:'#f2f2f2', 
-                    marginBottom:20,
-                    shadowColor: "grey",
-                    shadowOpacity: 0.6,
-                    shadowRadius: 1,
-                    shadowOffset: {
-                    height: 1,
-                    width: 3,},
-                    elevation:5,}}>{route.params?.cpf}</Text>
-                <Text style={styles.textinputshadow} />
-            </View>
+        <ScrollView style={styles.containerusuario}>
             {Object.values(data.map(paciente => (
-        <View style={{paddingHorizontal:20}}>
-            <View style={styles.cardconsulta} key={paciente.id}>
-                <Text style={{ alignSelf: 'center', marginTop: 15, fontSize: 16, color: 'white' }}>Informações de consulta</Text>
-                <Text style={{ backgroundColor: '#f2f2f2', borderRadius: 30, marginTop: 10, height: 40, paddingLeft:13, paddingTop:9 }} >{paciente.nome}</Text>
-                <Text style={{ backgroundColor: '#f2f2f2', borderRadius: 30, marginTop: 10, height: 40, paddingLeft:13, paddingTop:9 }} >{paciente.cpf}</Text>
-                <Text style={{ backgroundColor: '#f2f2f2', borderRadius: 30, marginTop: 10, height: 40, paddingLeft:13, paddingTop:9 }} >{paciente.cartaoSus}</Text>
-                <Text style={{ backgroundColor: '#f2f2f2', borderRadius: 30, marginTop: 10, height: 40, paddingLeft:13, paddingTop:9 }} >{paciente.endereco}</Text>
-                <Text style={{ backgroundColor: '#f2f2f2', borderRadius: 30, marginTop: 10, height: 40, paddingLeft:13, paddingTop:9 }} >{paciente.telefone}</Text>
-                <Text style={{ backgroundColor: '#f2f2f2', borderRadius: 30, marginTop: 10, height: 90, paddingLeft:13, paddingTop:9 }} >{paciente.postoAtendimento}</Text>
-            </View>
-        </View>
+
+                <View style={{ paddingHorizontal: 20 }}>
+                    <View style={styles.cardusuario}>
+                        <Feather
+                            name="user"
+                            size={30}
+                            color='#ffb246' />
+                    </View>
+                    <View style={{ position: 'absolute', width: '90%', marginTop: 30, alignSelf: 'flex-end', paddingHorizontal: 20, }}>
+                        <Text style={{
+                            paddingLeft: 10,
+                            paddingTop: 0,
+                            height: 20,
+                            marginBottom: 1,
+                            fontSize: 15
+                        }}>Nome: {paciente.nomePacientes}</Text>
+                        <Text style={{
+                            paddingLeft: 10,
+                            paddingTop: 0,
+                            marginBottom: 1,
+                            fontSize: 10
+                        }}>CPF: {paciente.cpf}</Text>
+                        <Text style={{
+                            paddingLeft: 10,
+                            paddingTop: 0,
+                            marginBottom: 1,
+                            fontSize: 10
+                        }}>SUS: {paciente.sus}</Text>
+
+                    </View>
+                    <View style={styles.cardconsulta} key={paciente.id}>
+                        <Text style={{ alignSelf: 'center', marginTop: 15, fontSize: 16, color: 'white' }}>Informações de consulta</Text>
+                        
+                        <Text style={{ backgroundColor: '#f2f2f2', borderRadius: 5, marginTop: 5, height: 60, paddingLeft: 7, paddingTop: 5 }} >Endereço: {paciente.endereco}</Text>
+                        <Text style={{ backgroundColor: '#f2f2f2', borderRadius: 5, marginTop: 5, height: 40, paddingLeft: 7, paddingTop: 5 }} >Telefone: {paciente.telefone}</Text>
+                        <Text style={{ backgroundColor: '#f2f2f2', borderRadius: 5, marginTop: 5, height: 50, paddingLeft: 7, paddingTop: 5 }} >Posto de Atendimento: {paciente.postoAtendimento}</Text>
+                        <Text style={{ backgroundColor: '#f2f2f2', borderRadius: 5, marginTop: 5, height: 30, paddingLeft: 7, paddingTop: 5 }} >Data Nascimento: {paciente.dataNascimento}</Text>
+                        
+                    </View>
+                </View>
             )))}
             <View style={styles.bottomtab}>
-                <TouchableOpacity style={{justifyContent:'center', marginLeft:13}}
+                <TouchableOpacity style={{ justifyContent: 'center', marginLeft: 13 }}
                     onPress={() => navigation.navigate(EditarPaciente)}>
                     <Feather
-                    name="edit"
-                    size={23}
-                    color='grey'
-                    style={{alignSelf:'center'}}/>
-                    <Text style={{fontSize:11, color:'grey'}}>Editar</Text>
+                        name="edit"
+                        size={23}
+                        color='grey'
+                        style={{ alignSelf: 'center' }} />
+                    <Text style={{ fontSize: 11, color: 'grey' }}>Editar</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={{justifyContent:'center',}}
+                <TouchableOpacity style={{ justifyContent: 'center', }}
                     onPress={() => navigation.navigate(ConsultaPaciente)}>
-                <Feather
-                    name="plus-square"
-                    size={23}
-                    color='grey'
-                    style={{alignSelf:'center'}}/>
-                    <Text style={{fontSize:11, color:'grey'}}>Consulta</Text>
+                    <Feather
+                        name="plus-square"
+                        size={23}
+                        color='grey'
+                        style={{ alignSelf: 'center' }} />
+                    <Text style={{ fontSize: 11, color: 'grey' }}>Consulta</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={{justifyContent:'center'}}>
-                <Feather
-                    name="share"
-                    size={23}
-                    color='grey'
-                    style={{alignSelf:'center'}}/>
-                    <Text style={{fontSize:11, color:'grey'}}>Encaminhar</Text>
+                <TouchableOpacity style={{ justifyContent: 'center' }}>
+                    <Feather
+                        name="share"
+                        size={23}
+                        color='grey'
+                        style={{ alignSelf: 'center' }} />
+                    <Text style={{ fontSize: 11, color: 'grey' }}>Encaminhar</Text>
                 </TouchableOpacity>
             </View>
         </ScrollView>

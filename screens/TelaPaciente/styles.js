@@ -10,11 +10,11 @@ containerusuario:{
 cardusuario:{
   flexDirection:'row',
   backgroundColor:'#f2f2f2', 
-  height:120, 
-  width:120, 
-  marginTop:40,
-  marginLeft:20,
-  borderRadius:30,
+  height:60, 
+  width:60, 
+  marginTop:20,
+  marginLeft:5,
+  borderRadius:50,
   alignItems:'center',
   justifyContent:'center',
   shadowColor: "grey",
@@ -22,7 +22,8 @@ cardusuario:{
   shadowRadius: 2,
   shadowOffset: {
   height: 1,
-  width: 4,},
+  width: 4,
+},
   elevation:5,
 },
 textinputshadow:{
@@ -43,7 +44,7 @@ textinputshadow:{
 },
 cardconsulta:{
   height:400, 
-  marginTop:50,
+  marginTop:20,
   backgroundColor:'#FFDD80',
   borderRadius:20,
   shadowColor: "grey",
@@ -57,6 +58,7 @@ cardconsulta:{
   marginBottom:30
 },
 bottomtab: {
+  
   bottom: 0,
   width: '100%',
   height: 55,
