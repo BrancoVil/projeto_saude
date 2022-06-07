@@ -52,7 +52,7 @@ const CadastrarPaciente = props => {
             .then(responseJson =>{
                 if(responseJson=="Paciente cadastrado com Sucesso!."){
                     alert("Paciente cadastrado com Sucesso!.")
-                    props.navigation.navigate('TelaPaciente')
+                    props.navigation.navigate('TelaPaciente', {cpf: cpf})
                 }else{
                     alert(responseJson);
                 }
