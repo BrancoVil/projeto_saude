@@ -10,11 +10,11 @@ containerusuario:{
 cardusuario:{
   flexDirection:'row',
   backgroundColor:'#f2f2f2', 
-  height:120, 
-  width:120, 
-  marginTop:40,
-  marginLeft:20,
-  borderRadius:30,
+  height:100, 
+  width:100, 
+  marginTop:20,
+  marginLeft:5,
+  borderRadius:50,
   alignItems:'center',
   justifyContent:'center',
   shadowColor: "grey",
@@ -22,7 +22,8 @@ cardusuario:{
   shadowRadius: 2,
   shadowOffset: {
   height: 1,
-  width: 4,},
+  width: 4,
+},
   elevation:5,
 },
 textinputshadow:{
@@ -42,7 +43,7 @@ textinputshadow:{
 
 },
 cardconsulta:{
-  height:400, 
+  height:320, 
   marginTop:50,
   backgroundColor:'#FFDD80',
   borderRadius:20,
@@ -54,19 +55,21 @@ cardconsulta:{
   width: 2,},
   elevation:5,
   paddingHorizontal:20,
-  marginBottom:30
+  marginBottom:150,
+  justifyContent:'center'
 },
 bottomtab: {
   bottom: 0,
   width: '100%',
-  height: 55,
+  height: 45,
   backgroundColor:'white',
   borderTopColor:'#f2f2f2',
   borderTopWidth:1,
   flexDirection:'row',
   paddingHorizontal:20,
   alignItems:'center',
-  justifyContent:'space-between'
+  justifyContent:'space-between',
+  marginTop:10
 }
   });
 

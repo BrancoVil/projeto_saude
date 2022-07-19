@@ -132,8 +132,13 @@ function EditarPaciente ({route}) {
                         keyboardType="numeric"
                         style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#ffb246', marginTop:10}}
                         autoCapitalize='none'
+<<<<<<< HEAD
                         onChangeText={(dataNascimento) => setDataNascimento(dataNascimento)}
                         value={dataNascimento}
+=======
+                        onChangeText={(datanascimento) => setDatanascimento(datanascimento)}
+                        value={datanascimento}
+>>>>>>> 6005d97ac669f90db31010e4dc64b980a15c824c
                         type={'datetime'}
                         options={{
                             format: 'DD/MM/YYYY'
