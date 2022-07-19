@@ -15,114 +15,137 @@ import styles from './styles';
 import {LinearGradient} from 'expo-linear-gradient';
 import Feather from 'react-native-vector-icons/Feather';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-
-const TelaPaciente = props =>{
-    props.navigation.navigate('TelaPaciente')
-}
+import { useNavigation } from "@react-navigation/native";
 
 
-const CadastrarPaciente = props => {
-    const [paciente, setPaciente] = useState('');
+function EditarPaciente ({route}) {
+    const [idCadPaciente, setIdCadPaciente] = useState('');
+    const [nome, setNome] = useState('');
     const [cpf, setCpf] = useState('');
-    const [sus, setSus] = useState('');
+    const [cartaoSus, setCartaoSus] = useState('');
     const [endereco, setEndereco] = useState('');
     const [telefone, setTelefone] = useState('');
-    const [postoatendimento, setPostoatendimento] = useState('');
-    const [datanascimento, setDatanascimento] = useState('');
+    const [postoAtendimento, setPostoAtendimento] = useState('');
+    const [dataNascimento, setDataNascimento] = useState('');
+
+    const navigation = useNavigation();
     
-    const Cadastrar = async()=>{
-        if(cpf!="" || sus!=""){
-            
-            await fetch('https://ivfassessoria.com/repositories/api/api/paciente/create.php',{
+    const Editar = async()=>{
+
+            await fetch('https://ivfassessoria.com/repositories/api/api/paciente/update.php?cpf='+route.params?.cpf,{
                 method: 'POST',
                 header:{
                     'Accept': 'application/json',
                     'Content-type': 'application/json'
                 },
                 body: JSON.stringify({
-                    nomePacientes: paciente,
+                    nomePacientes: nome,
                     cpf: cpf,
-                    cartaoSus: sus,
+                    cartaoSus: cartaoSus,
                     endereco: endereco,
                     telefone: telefone,
-                    postoAtendimento: postoatendimento,
-                    dataNascimento: datanascimento
+                    postoAtendimento: postoAtendimento,
+                    dataNascimento: dataNascimento
                 })
             }).then((response) => response.json())
             .then(responseJson =>{
-                if(responseJson=="Paciente cadastrado com Sucesso!."){
-                    alert("Paciente cadastrado com Sucesso!.")
-                    props.navigation.navigate('TelaPaciente', {
-                        nome: paciente,
-                        cpf: cpf
-                    })
+                if(responseJson=="Paciente atualizado com Sucesso!."){
+                    alert("Paciente Editado com Sucesso!.")
+                    props.navigation.navigate('TelaPaciente')
                 }else{
                     alert(responseJson);
-                }
-                
+                }               
             })
-        }
     }   
 
+    useEffect(() => {
+        setIdCadPaciente(route.params?.idcadPacientes)
+        setNome(route.params?.nomePacientes)
+        setCpf(route.params?.cpf)
+        setCartaoSus(route.params?.cartaoSus)
+        setEndereco(route.params?.endereco)
+        setTelefone(route.params?.telefone)
+        setPostoAtendimento(route.params?.postoAtendimento)
+        setDataNascimento(route.params?.dataNascimento)
+       
+    },[])
 
 
     return(
             <ScrollView style={styles.footer}>
-                <View style={styles.cardform}>
-                    <Text style ={{fontSize:20, alignSelf:'center', marginBottom:20, color:'orange', fontWeight:'bold'}}>Paciente</Text>
+                <View style={styles.cardform} >
+                    <Text style ={{fontSize:20, alignSelf:'center', marginBottom:20, color:'orange', fontWeight:'bold'}}>Editar Paciente</Text>
                     <TextInput
-                        placeholder="Nome"
+                        placenholder="Nome"
                         style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#ffb246'}}
                         autoCapitalize='none'
-                        onChangeText={(paciente) => setPaciente(paciente)}
+                        value={nome}
+                        onChangeText={(nome) => setNome(nome)}
                     />
-                    <TextInput
+                    <TextInputMask
                         keyboardType="numeric"
                         placeholder="CPF"
                         style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#ffb246', marginTop:10,}}
                         autoCapitalize='none'
                         onChangeText={(cpf) => setCpf(cpf)}
+                        type={'cpf'}
+                        value={cpf}
                     />
                     <TextInput
                         keyboardType="numeric"
                         placeholder="Cartão SUS"
                         style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#ffb246', marginTop:10,}}
                         autoCapitalize='none'
-                        onChangeText={(sus) => setSus(sus)}
+                        onChangeText={(cartaoSus) => setCartaoSus(cartaoSus)}
+                        value={cartaoSus}
                     />
                     <TextInput
                         placeholder="Endereço"
                         style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#ffb246', marginTop:10}}
                         autoCapitalize='none'
                         onChangeText={(endereco) => setEndereco(endereco)}
+                        value={endereco}
                     />
-                    <TextInput
+                    <TextInputMask
                         keyboardType="numeric"
                         placeholder="Telefone"
                         style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#ffb246', marginTop:10}}
                         autoCapitalize='none'
                         onChangeText={(telefone) => setTelefone(telefone)}
+                        value={telefone}
+                        type={'cel-phone'}
+                        options={{
+                            maskType:'BRL',
+                            withDDD:true,
+                            dddMask:'(99)'
+                        }}
                     />
                     <TextInput
                         placeholder="Posto de atendimento"
                         style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#ffb246', marginTop:10}}
                         autoCapitalize='none'
-                        onChangeText={(postoatendimento) => setPostoatendimento(postoatendimento)}
+                        onChangeText={(postoAtendimento) => setPostoAtendimento(postoAtendimento)}
+                        value={postoAtendimento}
                     />
-                   <TextInput
+                   <TextInputMask
                         placeholder="Data de Nascimento"
                         keyboardType="numeric"
                         style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#ffb246', marginTop:10}}
                         autoCapitalize='none'
-                        onChangeText={(datanascimento) => setDatanascimento(datanascimento)}
+                        onChangeText={(dataNascimento) => setDataNascimento(dataNascimento)}
+                        value={dataNascimento}
+                        type={'datetime'}
+                        options={{
+                            format: 'DD/MM/YYYY'
+                          }}
+                    
                     />
                     
-                    <TouchableOpacity style={styles.signIn} onPress={(Cadastrar)}>
-                            <Text style={{fontSize:20, alignContent:'center', color:'white'}}>Cadastrar</Text>
+                    <TouchableOpacity style={styles.signIn} onPress={Editar()}>
+                            <Text style={{fontSize:20, alignContent:'center', color:'white'}}>Editar</Text>
                     </TouchableOpacity>
                 </View>
             </ScrollView>
     )
-}
-
-export default CadastrarPaciente
+ }
+export default EditarPaciente

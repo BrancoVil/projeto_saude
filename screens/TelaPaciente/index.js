@@ -1,64 +1,140 @@
-import React, {useEffect} from "react";
+import React, { Component, useState, useEffect } from "react";
 import {
     View,
     ScrollView,
     Text,
-    Button,
-    StyleSheet,
     TouchableOpacity,
-    TextInput,
-    Dimensions,
-    Image
 } from 'react-native';
 import styles from './styles';
-import {LinearGradient} from 'expo-linear-gradient';
 import Feather from 'react-native-vector-icons/Feather';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import { useNavigation } from "@react-navigation/native";
+
+const FormCadastro = props => {
+    props.navigation.navigate('FormCadastro')
+}
+
+const ConsultaPaciente = props => {
+    props.navigation.navigate('ConsultaPaciente')
+}
 
 
-const TelaPaciente = (route) => {
-    const [cpf, setCpf] = useState('')
+function TelaPaciente({ route }) {
 
-    const buscarPaciente = async () => {
-        fetch('https://ivfassessoria.com/repositories/api/api/paciente/read.php?cpf=' + cpf, {
+    const navigation = useNavigation();
+    const [data, setData] = useState([]);
+
+    singleViewPaciente = async () => {
+        fetch('https://ivfassessoria.com/repositories/api/api/paciente/readone.php?cpf=' + route.params?.cpf, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
                 'Content-type': 'application/json'
-         },
+            },
         })
-        .then((response) => response.json())
-        .then((responseJson) => (
-            alert(responseJson.body)
-        ));
+            .then((response) => response.json())
+            .then((responseJson) => (
+                paciente = [responseJson],
+                setData(paciente)
+            ));
     }
 
     useEffect(() => {
-         cpf = route
-        buscarPaciente()
-    })
-    return(
+        singleViewPaciente();
+    }, [])
+
+
+    return (
+
         <ScrollView style={styles.containerusuario}>
-            <View style={styles.cardusuario}>
-              <Feather
-              name="user"
-              size={105}
-              color='#ffb246'/>   
+        {Object.values(data.map(paciente => (
+                <View style={{ paddingHorizontal: 20 }} key={paciente.idcadPacientes}>
+                    <View style={styles.cardusuario}>
+                        <Feather
+                            name="user"
+                            size={30}
+                            color='#ffb246' />
+                    </View>
+                    <View style={{ position: 'absolute', width: '75%', marginTop: 30, alignSelf: 'flex-end', paddingHorizontal: 20, }}>
+                        <Text style={{
+                            paddingLeft: 10,
+                            height: 30,
+                            fontSize: 20,
+                            width:'100%',
+                            backgroundColor:'#f2f2f2',
+                            borderRadius:5,
+                            marginBottom:5
+                        }}>Nome: {paciente.nomePacientes}</Text>
+                        <Text style={{
+                            paddingLeft: 10,
+                            fontSize: 15,
+                            width:'80%',
+                            backgroundColor:'#f2f2f2',
+                            borderRadius:5,
+                            marginBottom:5
+
+                        }}>CPF: {paciente.cpf}</Text>
+                        <Text style={{
+                            paddingLeft: 10,
+                            fontSize: 14,
+                            width:'80%',
+                            backgroundColor:'#f2f2f2',
+                            borderRadius:5
+                        }}>SUS: {paciente.sus}</Text>
+
+                    </View>
+                    <View style={styles.cardconsulta} key={paciente.id}>
+                        <Text style={{ alignSelf: 'center', fontSize: 19, marginBottom:20, color: 'white' }}>Informações de consulta</Text>
+                        
+                        <Text style={{ backgroundColor: '#f2f2f2', borderRadius: 5, marginTop: 5, height: 40, paddingLeft: 7, paddingTop: 5 }} >Endereço: {paciente.endereco}</Text>
+                        <Text style={{ backgroundColor: '#f2f2f2', borderRadius: 5, marginTop: 5, height: 40, paddingLeft: 7, paddingTop: 5 }} >Telefone: {paciente.telefone}</Text>
+                        <Text style={{ backgroundColor: '#f2f2f2', borderRadius: 5, marginTop: 5, height: 50, paddingLeft: 7, paddingTop: 5 }} >Posto de Atendimento: {paciente.postoAtendimento}</Text>
+                        <Text style={{ backgroundColor: '#f2f2f2', borderRadius: 5, marginTop: 5, height: 30, paddingLeft: 7, paddingTop: 5 }} >Data Nascimento: {paciente.dataNascimento}</Text>
+                        
+                    </View>
+                </View>
+                )))}
+        {Object.values(data.map(paciente => (
+
+            <View style={styles.bottomtab} key={paciente.idcadPacientes}>
+                <TouchableOpacity style={{ justifyContent: 'center', marginLeft: 13 }}
+                    onPress={() => navigation.navigate('EditarPaciente',{ 
+                        nomePacientes: paciente.nomePacientes,
+                        cpf: paciente.cpf,
+                        cartaoSus: paciente.cartaoSus,
+                        endereco: paciente.endereco,
+                        telefone: paciente.telefone,
+                        postoAtendimento: paciente.postoAtendimento,
+                        dataNascimento: paciente.dataNascimento
+                    })}>
+                    <Feather
+                        name="edit"
+                        size={23}
+                        color='grey'
+                        style={{ alignSelf: 'center' }} />
+                    <Text style={{ fontSize: 11, color: 'grey' }}>Editar</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={{ justifyContent: 'center', }}
+                    onPress={() => navigation.navigate(ConsultaPaciente)}>
+                    <Feather
+                        name="plus-square"
+                        size={23}
+                        color='grey'
+                        style={{ alignSelf: 'center' }} />
+                    <Text style={{ fontSize: 11, color: 'grey' }}>Consulta</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={{ justifyContent: 'center' }}>
+                    <Feather
+                        name="share"
+                        size={23}
+                        color='grey'
+                        style={{ alignSelf: 'center' }} />
+                    <Text style={{ fontSize: 11, color: 'grey' }}>Encaminhar</Text>
+                </TouchableOpacity>
             </View>
-            <View style={{position:'absolute', width:'60%', marginLeft:160, marginTop:52 }}>
-                  <TextInput style={styles.textinputshadow}/>
-                  <TextInput style={styles.textinputshadow}/>
-            </View>
-            <View style={styles.cardconsulta}>
-                <Text style={{alignSelf:'center', marginTop:15, fontSize:16, color:'white'}}>Informações de consulta</Text>
-                <TextInput style={{backgroundColor:'#f2f2f2', borderRadius:30, marginTop:10, height:40}}/>
-                <TextInput style={{backgroundColor:'#f2f2f2', borderRadius:30, marginTop:10, height:40}}/>
-                <TextInput style={{backgroundColor:'#f2f2f2', borderRadius:30, marginTop:10, height:40}}/>
-                <TextInput style={{backgroundColor:'#f2f2f2', borderRadius:30, marginTop:10, height:40}}/>
-                <TextInput style={{backgroundColor:'#f2f2f2', borderRadius:30, marginTop:10, height:40}}/>
-                <TextInput style={{backgroundColor:'#f2f2f2', borderRadius:30, marginTop:10, height:90}}/>
-            </View>   
+                            )))}
+
         </ScrollView>
+
     )
 }
 

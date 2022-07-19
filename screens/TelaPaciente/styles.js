@@ -4,8 +4,8 @@ const styles = StyleSheet.create({
 
 containerusuario:{
   flex:1,
-  paddingHorizontal:20,
   backgroundColor:'white',
+
 },
 cardusuario:{
   flexDirection:'row',
@@ -13,6 +13,7 @@ cardusuario:{
   height:120, 
   width:120, 
   marginTop:40,
+  marginLeft:20,
   borderRadius:30,
   alignItems:'center',
   justifyContent:'center',
@@ -25,7 +26,8 @@ cardusuario:{
   elevation:5,
 },
 textinputshadow:{
-  paddingLeft:10,
+  paddingLeft:13,
+  paddingTop:9,
   borderRadius:30, 
   height:40,
   backgroundColor:'#f2f2f2', 
@@ -40,7 +42,7 @@ textinputshadow:{
 
 },
 cardconsulta:{
-  height:395, 
+  height:400, 
   marginTop:50,
   backgroundColor:'#FFDD80',
   borderRadius:20,
@@ -51,7 +53,20 @@ cardconsulta:{
   height: 1,
   width: 2,},
   elevation:5,
-  paddingHorizontal:20
+  paddingHorizontal:20,
+  marginBottom:30
+},
+bottomtab: {
+  bottom: 0,
+  width: '100%',
+  height: 55,
+  backgroundColor:'white',
+  borderTopColor:'#f2f2f2',
+  borderTopWidth:1,
+  flexDirection:'row',
+  paddingHorizontal:20,
+  alignItems:'center',
+  justifyContent:'space-between'
 }
   });
 
