@@ -30,9 +30,11 @@ function EditarPaciente ({route}) {
 
     const navigation = useNavigation();
     
-    const Editar = async()=>{
+    function Editar() {
 
-            await fetch('https://ivfassessoria.com/repositories/api/api/paciente/update.php?cpf='+route.params?.cpf,{
+        if(cpf!=""){
+
+            fetch('https://ivfassessoria.com/repositories/api/api/paciente/update.php',{
                 method: 'POST',
                 header:{
                     'Accept': 'application/json',
@@ -50,12 +52,16 @@ function EditarPaciente ({route}) {
             }).then((response) => response.json())
             .then(responseJson =>{
                 if(responseJson=="Paciente atualizado com Sucesso!."){
-                    alert("Paciente Editado com Sucesso!.")
-                    props.navigation.navigate('TelaPaciente')
+                    alert(responseJson);
+                    props.navigation.navigate('TelaPaciente', {
+                        cpf: cpf
+                    })
+                    
                 }else{
                     alert(responseJson);
                 }               
             })
+        }
     }   
 
     useEffect(() => {
@@ -132,13 +138,8 @@ function EditarPaciente ({route}) {
                         keyboardType="numeric"
                         style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#ffb246', marginTop:10}}
                         autoCapitalize='none'
-<<<<<<< HEAD
                         onChangeText={(dataNascimento) => setDataNascimento(dataNascimento)}
                         value={dataNascimento}
-=======
-                        onChangeText={(datanascimento) => setDatanascimento(datanascimento)}
-                        value={datanascimento}
->>>>>>> 6005d97ac669f90db31010e4dc64b980a15c824c
                         type={'datetime'}
                         options={{
                             format: 'DD/MM/YYYY'
