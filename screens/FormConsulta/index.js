@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { StatusBar } from 'expo-status-bar';
 import {
     View,
     Text,
@@ -11,15 +12,25 @@ import {
     ScrollView
 } from 'react-native';
 import styles from './styles';
-import {LinearGradient} from 'expo-linear-gradient';
+import { LinearGradient } from 'expo-linear-gradient';
 import Feather from 'react-native-vector-icons/Feather';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
+const UselessTextInput = (props) => {
+    return (
+      <TextInput
+        {...props} // Inherit any props passed to it; e.g., multiline, numberOfLines below
+        editable
+        maxLength={255}
+      />
+    );
+  }
 
-function FormCadastro ({route}) {
+function FormCadastro({ route, navigation }) {
 
-    const[paciente, setPaciente] = useState('');
-    const[cpf, setCpf] = useState('');
+    const [idCadPaciente, setIdCadPaciente] = useState(route.params?.id);
+    const [paciente, setPaciente] = useState('');
+    const [cpf, setCpf] = useState('');
 
     const [pa, setPa] = useState('');
     const [glicemia, setGlicemia] = useState('');
@@ -27,79 +38,87 @@ function FormCadastro ({route}) {
     const [localAtendimento, setLocalAtendimento] = useState('');
     const [sacolaMed, setSacolaMed] = useState('');
 
-    const CadConsulta = async()=>{
-     fetch('https://ivfassessoria.com/repositories/api/api/atendimento/create.php',{
-        method: 'POST',
-        header:{
-            'Accept': 'application/json',
-            'Content-type': 'application/json'
-        },
-        body: JSON.stringify({
-            pressaoarterial: pa,
-            glicemia: glicemia,
-            localatendimento: localAtendimento,
-            sacolamedicamento: sacolaMed
-        })
-    }).then((response) => response.json())
-    .then(responseJson =>{
-        if(responseJson=="Consulta cadastrada com Sucesso!."){
-            alert("Consulta cadastrada com Sucesso!.")
-            props.navigation.navigate('TelaPaciente', {
-                nome: paciente,
-                cpf: cpf
-            })
-        }else{
-            alert(responseJson);
-        }
-        
-    })
-}   
+    useEffect(() => {
+            CadConsulta();
+        }, [])
 
-useEffect(() => {
-    setPaciente(route.params?.paciente);
-    setCpf(route.params?.cpf);
-}, [])
-    return(
-            <ScrollView style={styles.footer}>
-                <View style={styles.cardform}>
-                    <Text style={{fontSize:20, alignSelf:'center', marginBottom:20, color:'orange', fontWeight:'bold', marginTop:20}}>Cadastrar Consulta</Text>
+    const CadConsulta = async () => {
+        if (pa != "" || glicemia != "" || localAtendimento != "" || sacolaMed != "") {
+            fetch('https://ivfassessoria.com/repositories/api/api/atendimento/create.php', {
+                method: 'POST',
+                header: {
+                    'Accept': 'application/json',
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify({
+                    idcadPacientes: idCadPaciente,
+                    pressaoarterial: pa,
+                    glicemia: glicemia,
+                    localdeatedimento: localAtendimento,
+                    sacolamedicamento: sacolaMed
+                })
+            }).then((response) => response.json())
+                .then(responseJson => {
+                    if (responseJson == "Consulta cadastrada com Sucesso!.") {
+                        alert("Consulta cadastrada com Sucesso!.")
+                        navigation.navigate("TelaPaciente");
+                        
+                    } else {
+                        alert(responseJson);
+                    }
+
+                })
+        }
+
+
+    }
+
+    
+    return (
+        <ScrollView style={styles.container}>
+            <View>
+                <View style={styles.inputContainer}>
                     <TextInput
-                        placeholder="Pressão Arterial"
-                        style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#ffb246'}}
-                        autoCapitalize='none'
+                        onChangeText={(idCadPaciente) => setIdCadPaciente(idCadPaciente)}
+                        value={idCadPaciente}
+                        style={{ color: 'transparent' }}
+                    />
+                    <Text style={styles.label}>Pressão Arterial</Text>
+                    <TextInput
+                        style={styles.input}
+                        clearButtonMode="always"
                         onChangeText={(pa) => setPa(pa)}
                     />
+                    <Text style={styles.label}>Glicemia</Text>
                     <TextInput
                         keyboardType="numeric"
-                        placeholder="Glicemia"
-                        style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#ffb246', marginTop:10,}}
-                        autoCapitalize='none'
+                        style={styles.input}
+                        clearButtonMode="always"
                         onChangeText={(glicemia) => setGlicemia(glicemia)}
                     />
+                    <Text style={styles.label}>Local de Atendimento</Text>
                     <TextInput
-                        keyboardType="numeric"
-                        placeholder="Data de atendimento"
-                        style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#ffb246', marginTop:10}}
-                        autoCapitalize='none'
-                        onChangeText={(dataAtendimento) => setDataAtendimento(dataAtendimento)}
-                    />
-                    <TextInput
-                        placeholder="Local de atendimento"
-                        style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#ffb246', marginTop:10}}
-                        autoCapitalize='none'
+                        style={styles.input}
+                        clearButtonMode="always"
                         onChangeText={(localAtendimento) => setLocalAtendimento(localAtendimento)}
                     />
-                    <TextInput
-                        placeholder="Sacola de medicamentos"
-                        style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:130,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#ffb246', marginTop:10, textAlignVertical:'top',}}
-                        autoCapitalize='none'
+                    <Text style={styles.label}>Sacole de Medicamento</Text>
+                    <UselessTextInput
+                        multiline
+                        numberOfLines={6}
+                        style={styles.inputText}
+                        clearButtonMode="always"
                         onChangeText={(sacolaMed) => setSacolaMed(sacolaMed)}
                     />
-                    <TouchableOpacity style={styles.signIn} onPress={CadConsulta}>
-                            <Text style={{fontSize:20, alignContent:'center', color:'white'}}>Cadastrar</Text>
+                    <TouchableOpacity style={styles.button} onPress={CadConsulta}>
+                        <Text style={styles.buttonText}>Cadastrar</Text>
                     </TouchableOpacity>
+                    
+                    <StatusBar style="light" />
                 </View>
-            </ScrollView>
+            </View>
+
+        </ScrollView>
     )
 }
 

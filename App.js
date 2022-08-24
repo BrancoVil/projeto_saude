@@ -7,6 +7,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Routes from './src/Routes';
 import TelaPaciente from './screens/TelaPaciente';
 import EditarPaciente from './screens/EditarPaciente';
+import ListaAtendimento from './screens/ListaAtendimento';
+import Encaminhar from './screens/Encaminhar';
+
 
 
 // const Tab = createBottomTabNavigator();
@@ -58,6 +61,23 @@ export default function App() {
             headerStyle: { backgroundColor: '#ffb246' },
             headerTintColor: '#fff'
           }} />
+        <Stack.Screen
+          name="ListaAtendimento"
+          component={ListaAtendimento}
+          options={{
+            title: 'Atendimentos',
+            headerStyle: { backgroundColor: '#ffb246' },
+            headerTintColor: '#fff'
+          }} />
+        <Stack.Screen
+          name="Encaminhar"
+          component={Encaminhar}
+          options={{
+            title: 'Encaminhar',
+            headerStyle: { backgroundColor: '#ffb246' },
+            headerTintColor: '#fff'
+          }} />
+
           
       </Stack.Navigator>
     </NavigationContainer>

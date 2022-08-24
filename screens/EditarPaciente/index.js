@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { StatusBar } from 'expo-status-bar';
 import { TextInputMask } from "react-native-masked-text";
 import {
     View,
@@ -18,140 +19,129 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { useNavigation } from "@react-navigation/native";
 
 
-function EditarPaciente ({route}) {
-    const [idCadPaciente, setIdCadPaciente] = useState('');
-    const [nome, setNome] = useState('');
-    const [cpf, setCpf] = useState('');
-    const [cartaoSus, setCartaoSus] = useState('');
-    const [endereco, setEndereco] = useState('');
-    const [telefone, setTelefone] = useState('');
-    const [postoAtendimento, setPostoAtendimento] = useState('');
-    const [dataNascimento, setDataNascimento] = useState('');
+function EditarPaciente ({route, navigation}) {
+    const [idCadPaciente, setIdCadPaciente] = useState(route.params?.idcadPacientes);
+    const [nome, setNome] = useState(route.params?.nomePacientes);
+    const [cpf, setCpf] = useState(route.params?.cpf);
+    const [cartaoSus, setCartaoSus] = useState(route.params?.cartaoSus);
+    const [endereco, setEndereco] = useState(route.params?.endereco);
+    const [telefone, setTelefone] = useState(route.params?.telefone);
+    const [postoAtendimento, setPostoAtendimento] = useState(route.params?.postoAtendimento);
+    const [dataNascimento, setDataNascimento] = useState(route.params?.dataNascimento);
 
-    const navigation = useNavigation();
     
-    function Editar() {
+    const Editar = props => {
 
-        if(cpf!=""){
 
-            fetch('https://ivfassessoria.com/repositories/api/api/paciente/update.php',{
-                method: 'POST',
-                header:{
-                    'Accept': 'application/json',
-                    'Content-type': 'application/json'
-                },
-                body: JSON.stringify({
-                    nomePacientes: nome,
-                    cpf: cpf,
-                    cartaoSus: cartaoSus,
-                    endereco: endereco,
-                    telefone: telefone,
-                    postoAtendimento: postoAtendimento,
-                    dataNascimento: dataNascimento
-                })
-            }).then((response) => response.json())
-            .then(responseJson =>{
-                if(responseJson=="Paciente atualizado com Sucesso!."){
-                    alert(responseJson);
-                    props.navigation.navigate('TelaPaciente', {
-                        cpf: cpf
-                    })
-                    
-                }else{
-                    alert(responseJson);
-                }               
+        fetch('https://ivfassessoria.com/repositories/api/api/paciente/update.php', {
+            method: 'PUT',
+            header: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+            body: JSON.stringify({
+                nomePacientes: nome,
+                cpf: cpf,
+                cartaoSus: cartaoSus,
+                endereco: endereco,
+                telefone: telefone,
+                postoAtendimento: postoAtendimento,
+                dataNascimento: dataNascimento
             })
-        }
-    }   
+        }).then((response) => response.json())
+            .then(responseJson => {
+                if (responseJson == "Paciente atualizado com Sucesso!.") {
+                    alert(responseJson);
+                    navigation.navigate("ListarPacientes");
 
-    useEffect(() => {
-        setIdCadPaciente(route.params?.idcadPacientes)
-        setNome(route.params?.nomePacientes)
-        setCpf(route.params?.cpf)
-        setCartaoSus(route.params?.cartaoSus)
-        setEndereco(route.params?.endereco)
-        setTelefone(route.params?.telefone)
-        setPostoAtendimento(route.params?.postoAtendimento)
-        setDataNascimento(route.params?.dataNascimento)
+                } else {
+                    alert(responseJson);
+                }
+            })
+
+        
+
+    } 
+
+    // useEffect(() => {
+    //     setIdCadPaciente(route.params?.idcadPacientes)
+    //     setNome(route.params?.nomePacientes)
+    //     setCpf(route.params?.cpf)
+    //     setCartaoSus(route.params?.cartaoSus)
+    //     setEndereco(route.params?.endereco)
+    //     setTelefone(route.params?.telefone)
+    //     setPostoAtendimento(route.params?.postoAtendimento)
+    //     setDataNascimento(route.params?.dataNascimento)
        
-    },[])
+    // },[])
 
 
     return(
-            <ScrollView style={styles.footer}>
-                <View style={styles.cardform} >
-                    <Text style ={{fontSize:20, alignSelf:'center', marginBottom:20, color:'orange', fontWeight:'bold'}}>Editar Paciente</Text>
+        <ScrollView style={styles.container}>
+            <View >
+                <View style={styles.inputContainer}>
+                    <Text style={styles.label}>Nome Completo 1</Text>
                     <TextInput
-                        placenholder="Nome"
-                        style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#ffb246'}}
-                        autoCapitalize='none'
-                        value={nome}
-                        onChangeText={(nome) => setNome(nome)}
-                    />
-                    <TextInputMask
-                        keyboardType="numeric"
-                        placeholder="CPF"
-                        style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#ffb246', marginTop:10,}}
-                        autoCapitalize='none'
+                        style={styles.input}
+                        onChangeText={(paciente) => setNome(paciente)}
+                        clearButtonMode="always"
+                        value={nome} />
+                    <Text style={styles.label}>Data de Nascimento</Text>
+                    <TextInput
+                        style={styles.input}
+                        onChangeText={(datanascimento) => setDataNascimento(datanascimento)}
+                        keyboardType='numeric'
+                        clearButtonMode="always"
+                        value={dataNascimento} />
+                    <Text style={styles.label}>CPF</Text>
+                    <TextInput
+                        style={styles.input}
                         onChangeText={(cpf) => setCpf(cpf)}
-                        type={'cpf'}
-                        value={cpf}
-                    />
+                        keyboardType='numeric'
+                        clearButtonMode="always"
+                        value={cpf} />
+
+                    <Text style={styles.label}>Cartão do SUS</Text>
                     <TextInput
-                        keyboardType="numeric"
-                        placeholder="Cartão SUS"
-                        style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#ffb246', marginTop:10,}}
-                        autoCapitalize='none'
-                        onChangeText={(cartaoSus) => setCartaoSus(cartaoSus)}
-                        value={cartaoSus}
-                    />
+                        style={styles.input}
+                        onChangeText={(sus) => setCartaoSus(sus)}
+                        keyboardType='numeric'
+                        clearButtonMode="always"
+                        value={cartaoSus} />
+
+                    <Text style={styles.label}>Endereço</Text>
                     <TextInput
-                        placeholder="Endereço"
-                        style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#ffb246', marginTop:10}}
-                        autoCapitalize='none'
+                        style={styles.input}
                         onChangeText={(endereco) => setEndereco(endereco)}
-                        value={endereco}
-                    />
-                    <TextInputMask
-                        keyboardType="numeric"
-                        placeholder="Telefone"
-                        style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#ffb246', marginTop:10}}
-                        autoCapitalize='none'
-                        onChangeText={(telefone) => setTelefone(telefone)}
-                        value={telefone}
-                        type={'cel-phone'}
-                        options={{
-                            maskType:'BRL',
-                            withDDD:true,
-                            dddMask:'(99)'
-                        }}
-                    />
+                        clearButtonMode="always"
+                        value={endereco} />
+
+                    <Text style={styles.label}>Telefone</Text>
                     <TextInput
-                        placeholder="Posto de atendimento"
-                        style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#ffb246', marginTop:10}}
-                        autoCapitalize='none'
-                        onChangeText={(postoAtendimento) => setPostoAtendimento(postoAtendimento)}
-                        value={postoAtendimento}
-                    />
-                   <TextInputMask
-                        placeholder="Data de Nascimento"
-                        keyboardType="numeric"
-                        style={{fontSize:20, borderWidth:1, borderRadius:20, paddingLeft:15, height:50,borderColor:'grey', backgroundColor:'#f5f5f5', width:'100%', borderColor:'#ffb246', marginTop:10}}
-                        autoCapitalize='none'
-                        onChangeText={(dataNascimento) => setDataNascimento(dataNascimento)}
-                        value={dataNascimento}
-                        type={'datetime'}
-                        options={{
-                            format: 'DD/MM/YYYY'
-                          }}
-                    
-                    />
-                    
-                    <TouchableOpacity style={styles.signIn} onPress={Editar()}>
-                            <Text style={{fontSize:20, alignContent:'center', color:'white'}}>Editar</Text>
+                        style={styles.input}
+                        onChangeText={(telefone) => setTelefone(telefone)}
+                        keyboardType='numeric'
+                        clearButtonMode="always"
+                        value={telefone} />
+
+                    <Text style={styles.label}>Posto de Atendimento</Text>
+                    <TextInput
+                        style={styles.input}
+                        onChangeText={(postoatendimento) => setPostoAtendimento(postoatendimento)}
+                        clearButtonMode="always"
+                        value={postoAtendimento} />
+
+
+
+
+                    <TouchableOpacity style={styles.button}>
+                        <Text style={styles.buttonText} onPress={Editar}>Atualizar</Text>
                     </TouchableOpacity>
                 </View>
-            </ScrollView>
+                <StatusBar style="light" />
+            </View>
+        </ScrollView>
     )
+    
  }
 export default EditarPaciente
+

@@ -1,39 +1,59 @@
 import { StyleSheet } from 'react-native' 
 
 const styles = StyleSheet.create({
-      footer: {
-          flex:1,
-          backgroundColor: '#f2f2f2',
-          paddingHorizontal: 0,
-      },
-      signIn: {
-        width: '80%',
-        height: 50,
-        alignSelf:'center',
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 30,
-        backgroundColor:'#ffb246',
-        marginTop:30
-      },
-      cardform:{
-        height: 570,
-        alignSelf:'center',
-        marginTop: 50,
-        backgroundColor:'#fdfdfd',
-        borderRadius:10,
-        width:'90%',
-        shadowColor: "#666",
-        shadowOpacity: 0.8,
-        shadowRadius: 2,
-        shadowOffset: {
-          height: 1,
-          width: 1},
-        elevation:4,
-        marginBottom:10,
-        paddingTop:20,
-        paddingHorizontal:15,
-      }
-  });
+  container: {
+      flex: 1,
+      backgroundColor: '#EFEFEF',
 
+  },
+  title: {
+      color: '#fff',
+      fontSize: 20,
+      fontWeight: 'bold',
+      marginTop: 20,
+  },
+  label: {
+      color: '#000',
+      fontSize: 12,
+      fontWeight: '400',
+      marginTop: 5
+
+  },
+  inputContainer: {
+      flex: 1,
+      marginTop: 5,
+      width: '99%',
+      padding: 10,
+      borderTopLeftRadius: 10,
+      borderTopRightRadius: 10,
+      alignItems: 'stretch'
+
+  },
+  input: {
+      marginTop: 5,
+      height: 40,
+      backgroundColor: '#fff',
+      borderRadius: 5,
+      paddingHorizontal: 12,
+      fontSize: 16,
+      alignItems: 'stretch'
+  },
+  button: {
+      marginTop: 10,
+      height: 40,
+      backgroundColor: 'blue',
+      borderRadius: 5,
+      paddingHorizontal: 24,
+      fontSize: 16,
+      alignItems: 'center',
+      justifyContent: 'center',
+      elevation: 20,
+      shadowOpacity: 20,
+      shadowColor: '#ccc',
+  },
+  buttonText: {
+      color: '#fff',
+      fontWeight: 'bold',
+  }
+});
 export default styles

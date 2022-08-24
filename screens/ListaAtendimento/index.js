@@ -1,16 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Text, ScrollView, RefreshControl, FlatList } from 'react-native';
-import AppItem from '../PacienteItem/PacienteItem';
+import AtendimentoItem from '../AtendimentoItem/AtendimentoItem';
 
-export default function AppList({ route, navigation }) {
+export default function AtendimentoList({ route, navigation }) {
 
+    const [id, setidCadPaciente] = useState(route.params?.id);
     const [refreshing, setRefreshing] = useState(false);
     const [data, setData] = useState([]);
 
 
-    function viewPaciente() {
-        fetch('https://ivfassessoria.com/repositories/api/api/paciente/read.php', {
+    function viewAtendimento() {
+        fetch('https://ivfassessoria.com/repositories/api/api/atendimento/read.php?idcadPacientes=' + route.params?.id, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -25,12 +26,14 @@ export default function AppList({ route, navigation }) {
             .catch((error) => {
                 console.error(error);
             });
+
+
     }
 
 
-    
+
     useEffect(() => {
-        viewPaciente();
+        viewAtendimento();
     }, [])
 
     const onRefresh = () => {
@@ -47,11 +50,15 @@ export default function AppList({ route, navigation }) {
                     style={styles.scrollContainer}
                     contentContainerStyle={styles.itemsContainer}>
                     {data.map(item => {
-                        return <AppItem key={item.idcadPacientes} id={item.idcadPacientes} nome={item.nomePacientes} cpf={item.cpf} sus={item.cartaoSus} endereco={item.endereco} telefone={item.telefone} postoAtendimento={item.postoAtendimento} dataNascimento={item.dataNascimento} navigation={navigation} />
+                        
+                            return <AtendimentoItem key={item.idcadAtendimento} id={item.idcadAtendimento} pressaoarterial={item.pressaoarterial} glicemia={item.glicemia} dataatendimento={item.dataatendimento} localdeatedimento={item.localdeatedimento} sacolamedicamento={item.sacolamedicamento} navigation={navigation} />
+                            
+                       
+
                     })}
 
                 </ScrollView>
-              
+
 
             </View>
         </ScrollView>

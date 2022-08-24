@@ -123,7 +123,7 @@ function TelaPaciente({ route }) {
                             style={{ alignSelf: 'center' }} />
                         <Text style={{ fontSize: 11, color: 'white' }}>Listagem</Text>
                     </TouchableOpacity>
-                    {/* <TouchableOpacity style={styles.button}
+                    <TouchableOpacity style={styles.button}
                         onPress={() => navigation.navigate('ListaAtendimento', {
                             id: paciente.idcadPacientes
                         })}>
@@ -133,7 +133,7 @@ function TelaPaciente({ route }) {
                             color='white'
                             style={{ alignSelf: 'center' }} />
                         <Text style={{ fontSize: 11, color: 'white' }}>Encaminhar</Text>
-                    </TouchableOpacity> */}
+                    </TouchableOpacity>
                     <StatusBar style="light" />
                 </View>
             )))}

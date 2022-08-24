@@ -31,7 +31,7 @@ export default function Routes() {
             <Feather name="user-plus" color={color} size={size} />
           ), tabBarActiveTintColor: '#ffb246',
         }} />
-      <Tab.Screen name="Listar Pacientes"
+      <Tab.Screen name="ListarPacientes"
         component={ListarPacientes}
         options={{
           headerShown: false, tabBarIcon: ({ color, size }) => (
