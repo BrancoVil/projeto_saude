@@ -51,7 +51,10 @@ function EditarPaciente ({route, navigation}) {
             .then(responseJson => {
                 if (responseJson == "Paciente atualizado com Sucesso!.") {
                     alert(responseJson);
-                    navigation.navigate("ListarPacientes");
+                    navigation.navigate('TelaPaciente', {
+                        cpf: cpf
+
+                    })
 
                 } else {
                     alert(responseJson);
@@ -86,12 +89,16 @@ function EditarPaciente ({route, navigation}) {
                         clearButtonMode="always"
                         value={nome} />
                     <Text style={styles.label}>Data de Nascimento</Text>
-                    <TextInput
+                    <TextInputMask
                         style={styles.input}
                         onChangeText={(datanascimento) => setDataNascimento(datanascimento)}
                         keyboardType='numeric'
                         clearButtonMode="always"
-                        value={dataNascimento} />
+                        value={dataNascimento}
+                        type={'datetime'}
+                        options={{
+                            format: 'DD/MM/YYYY'
+                        }} />
                     <Text style={styles.label}>CPF</Text>
                     <TextInput
                         style={styles.input}

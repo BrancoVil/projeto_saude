@@ -30,7 +30,7 @@ function FormCadastro({ route, navigation }) {
 
     const [idCadPaciente, setIdCadPaciente] = useState(route.params?.id);
     const [paciente, setPaciente] = useState('');
-    const [cpf, setCpf] = useState('');
+    const [cpf, setCpf] = useState(route.params?.cpf);
 
     const [pa, setPa] = useState('');
     const [glicemia, setGlicemia] = useState('');
@@ -61,7 +61,9 @@ function FormCadastro({ route, navigation }) {
                 .then(responseJson => {
                     if (responseJson == "Consulta cadastrada com Sucesso!.") {
                         alert("Consulta cadastrada com Sucesso!.")
-                        navigation.navigate("TelaPaciente");
+                        navigation.navigate("ListaAtendimento", {
+                            id: idcadPacientes
+                        });
                         
                     } else {
                         alert(responseJson);
@@ -117,6 +119,7 @@ function FormCadastro({ route, navigation }) {
                     <StatusBar style="light" />
                 </View>
             </View>
+            
 
         </ScrollView>
     )

@@ -16,7 +16,7 @@ export default function AppForm({ navigation }) {
     const [telefone, setTelefone] = useState('');
     const [postoatendimento, setPostoatendimento] = useState('');
 
-    function Cadastrar(){
+    function Cadastrar() {
         if (cpf != "" || sus != "") {
 
             fetch('https://ivfassessoria.com/repositories/api/api/paciente/create.php', {
@@ -38,16 +38,19 @@ export default function AppForm({ navigation }) {
                 .then(responseJson => {
                     if (responseJson == "Paciente cadastrado com Sucesso!.") {
                         alert("Paciente cadastrado com Sucesso!.")
-                        navigation.navigate("ListarPacientes");
+                        navigation.navigate("TelaPaciente", {
+                            cpf: cpf
+    
+                        })
                     } else {
                         alert(responseJson);
                     }
 
                 })
         }
-        
+
     }
-    
+
 
     return (
         <ScrollView style={styles.container}>
@@ -59,12 +62,17 @@ export default function AppForm({ navigation }) {
                         onChangeText={(paciente) => setPaciente(paciente)}
                         clearButtonMode="always" />
                     <Text style={styles.label}>Data de Nascimento</Text>
-                    
-                    <TextInput
+
+                    <TextInputMask
                         style={styles.input}
                         onChangeText={(datanascimento) => setDatanascimento(datanascimento)}
                         keyboardType='numeric'
-                        clearButtonMode="always" />
+                        clearButtonMode="always"
+                        type={'datetime'}
+                        options={{
+                            format: 'DD/MM/YYYY'
+                        }}
+                    />
                     <Text style={styles.label}>CPF</Text>
                     <TextInputMask
                         style={styles.input}
@@ -94,9 +102,9 @@ export default function AppForm({ navigation }) {
                         clearButtonMode="always"
                         type={'cel-phone'}
                         options={{
-                            maskType:'BRL',
-                            withDDD:true,
-                            dddMask:'(99)'
+                            maskType: 'BRL',
+                            withDDD: true,
+                            dddMask: '(99)'
                         }} />
 
                     <Text style={styles.label}>Posto de Atendimento</Text>

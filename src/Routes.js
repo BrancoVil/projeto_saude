@@ -10,12 +10,24 @@ import ListarPacientes from "../screens/ListaPacientes";
 import TelaPaciente from "../screens/TelaPaciente";
 
 
+
 const Tab = createBottomTabNavigator();
 
 
 export default function Routes() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      tabBarOptions={{
+        activeTintColor: '#fff',
+        inactiveTintColor: 'lightgray',
+        activeBackgroundColor: '#c4461c',
+        inactiveBackgroundColor: '#b55031',
+        style: {
+          backgroundColor: '#CE4418',
+          paddingBottom: 3
+        }
+      }}
+    >
       <Tab.Screen name="Buscar"
         component={TelaBuscar}
         options={{
@@ -38,7 +50,8 @@ export default function Routes() {
             <Feather name="list" color={color} size={size} />
           ), tabBarActiveTintColor: '#ffb246'
         }} />
-      
+
+
     </Tab.Navigator>
 
   )

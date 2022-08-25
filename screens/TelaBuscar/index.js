@@ -8,7 +8,8 @@ import {
     TouchableOpacity,
     Dimensions,
     Image,
-    ScrollView
+    ScrollView,
+    ImageBackground
 } from 'react-native';
 import styles from './styles';
 import Feather from 'react-native-vector-icons/Feather';
@@ -35,7 +36,7 @@ function TelaBuscar() {
                 },
                 body: JSON.stringify({
                     cpf: cpfPaciente
-                    
+
                 })
             }).then((response) => response.json())
                 .then(responseJson => {
@@ -50,34 +51,37 @@ function TelaBuscar() {
         }
     }
 
+    const imagem = { uri: "https://img.freepik.com/fotos-gratis/medicas-em-roupoes-de-banho-garota-africana-estetoscopio-no-pescoco-do-medico_1157-47156.jpg?w=1380&t=st=1661394543~exp=1661395143~hmac=180e374ca14132f062a5f8c6fbe96c2677edf21ff8def5dd713ff8a465b58f49" };
+
     return (
-        <ScrollView style={styles.container}>
-            <View>
-                <Image source={require('../TelaBuscar/imagem1.png')}
-                    style={styles.img}></Image>
+        
+            <View style={styles.container}>
+                <ImageBackground source={imagem} resizeMode="cover" imageStyle=
+                {{ opacity: 0.7 }}
+                    style={styles.image}>
+                    <View style={{flexDirection: 'row', alignItems: 'center', padding:10 }}>
+                        <View style={{ alignContent: 'center', width: '100%' }}>
+                            <TextInputMask style={styles.textinput}
+                                placeholder='CPF do Paciente'
+                                underlineColorAndroid="transparent"
+                                keyboardType="numeric"
+                                value={cpfPaciente}
+                                onChangeText={(cpfPaciente) => setCpfPaciente(cpfPaciente)}
+                                type={'cpf'}
+                                
+                            />
+                        </View>
+                        
+                    </View>
+                    <TouchableOpacity style={styles.button}
+                        onPress={Buscar}>
+                        <Text style={styles.buttontext}>Buscar</Text>
+                    </TouchableOpacity>
+
+                </ImageBackground>
             </View>
-            <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 20, }}>
-                <View style={{ position: 'absolute', alignContent: 'center', width: '100%' }}>
-                    <TextInputMask style={styles.textinput}
-                        placeholder='CPF do Paciente'
-                        underlineColorAndroid="transparent"
-                        keyboardType="numeric"
-                        value={cpfPaciente}
-                        onChangeText={(cpfPaciente) => setCpfPaciente(cpfPaciente)}
-                        type={'cpf'}
-                    />
-                </View>
-                <Feather
-                    name="search"
-                    size={20}
-                    color='grey'
-                    style={{ position: 'absolute', paddingTop: 70, marginLeft: 15 }} />
-            </View>
-            <TouchableOpacity style={styles.button}
-                onPress={Buscar}>
-                <Text style={styles.buttontext}>Buscar</Text>
-            </TouchableOpacity>
-        </ScrollView>
+
+        
     )
 }
 

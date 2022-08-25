@@ -42,28 +42,36 @@ export default function AtendimentoList({ route, navigation }) {
         getData();
     };
 
-    return (
-        <ScrollView>
-            <View style={styles.container}>
-                <StatusBar style="light" />
-                <ScrollView
-                    style={styles.scrollContainer}
-                    contentContainerStyle={styles.itemsContainer}>
-                    {data.map(item => {
-                        
+    if (data) {
+        return (
+            <ScrollView>
+                <View style={styles.container}>
+                    <StatusBar style="light" />
+                    <ScrollView
+                        style={styles.scrollContainer}
+                        contentContainerStyle={styles.itemsContainer}>
+                        {data.map(item => {
+
                             return <AtendimentoItem key={item.idcadAtendimento} id={item.idcadAtendimento} pressaoarterial={item.pressaoarterial} glicemia={item.glicemia} dataatendimento={item.dataatendimento} localdeatedimento={item.localdeatedimento} sacolamedicamento={item.sacolamedicamento} navigation={navigation} />
-                            
-                       
-
-                    })}
-
-                </ScrollView>
 
 
-            </View>
-        </ScrollView>
 
-    );
+                        })}
+
+                    </ScrollView>
+
+
+                </View>
+            </ScrollView>
+
+        );
+    } else {
+        return(
+            <Text>Não há dados!</Text>
+        )
+    }
+
+
 }
 
 const styles = StyleSheet.create({

@@ -4,6 +4,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#EFEFEF',
+        flexDirection:'column',
+        padding: 10
 
     },
     title: {
@@ -25,8 +27,6 @@ const styles = StyleSheet.create({
     inputContainer: {
         flex: 1,
         marginTop: 5,
-        width: '99%',
-        padding: 10,
         borderTopLeftRadius: 10,
         borderTopRightRadius: 10,
         alignItems: 'stretch'
@@ -42,31 +42,30 @@ const styles = StyleSheet.create({
         alignItems: 'stretch'
     },
     button: {
-        height: 40,
-        backgroundColor: 'blue',
-        paddingHorizontal: 24,
-        fontSize: 16,
+        height: 50,
+        backgroundColor: '#b55031',
+        fontSize: 25,
         alignItems: 'center',
         justifyContent: 'center',
-        elevation: 5,
-        shadowOpacity: 20,
-        
+        elevation: 1,
+        paddingLeft:'10%',
+        paddingRight:'10%',
+        borderRadius:5,
+        shadowOpacity: 15,
+
     },
     buttonText: {
         color: '#fff',
         fontWeight: 'bold',
     },
     bottomtab: {
-        bottom: 0,
+        flex: 3,
         width: '100%',
-        height: 50,
-        backgroundColor: 'white',
-        
+        height: 300,
         flexDirection: 'row',
-        
         alignItems: 'center',
         justifyContent: 'space-around',
-        
+
     }
 });
 export default styles

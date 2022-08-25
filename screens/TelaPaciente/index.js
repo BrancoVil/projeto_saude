@@ -47,9 +47,9 @@ function TelaPaciente({ route }) {
 
     return (
 
-        <ScrollView style={styles.container}>
+        <ScrollView >
             {Object.values(data.map(paciente => (
-                <View key={paciente.idcadPacientes}>
+                <View style={styles.container} key={paciente.idcadPacientes}>
 
                     <View style={styles.inputContainer}>
                         <Text style={styles.label}>Nome Completo</Text>
@@ -69,6 +69,7 @@ function TelaPaciente({ route }) {
                         <Text style={styles.input}>{paciente.postoAtendimento}</Text>
                         <Text style={styles.label}>Data de Nascimento</Text>
                         <Text style={styles.input}>{paciente.dataNascimento}</Text>
+                        
 
                     </View>
 
@@ -96,10 +97,10 @@ function TelaPaciente({ route }) {
                         })}>
                         <Feather
                             name="edit"
-                            size={12}
+                            size={15}
                             color='white'
                             style={{ alignSelf: 'center' }} />
-                        <Text style={{ fontSize: 11, color: 'white' }}>Editar</Text>
+                        <Text style={{ fontSize: 12, color: 'white' }}>Editar</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.button}
                         onPress={() => navigation.navigate('ConsultaPaciente', {
@@ -107,10 +108,10 @@ function TelaPaciente({ route }) {
                         })}>
                         <Feather
                             name="plus-square"
-                            size={12}
+                            size={15}
                             color='white'
                             style={{ alignSelf: 'center' }} />
-                        <Text style={{ fontSize: 11, color: 'white' }}>Consulta</Text>
+                        <Text style={{ fontSize: 12, color: 'white' }}>Consulta</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.button}
                         onPress={() => navigation.navigate('ListaAtendimento', {
@@ -118,22 +119,12 @@ function TelaPaciente({ route }) {
                         })}>
                         <Feather
                             name="share"
-                            size={12}
+                            size={15}
                             color='white'
                             style={{ alignSelf: 'center' }} />
-                        <Text style={{ fontSize: 11, color: 'white' }}>Listagem</Text>
+                        <Text style={{ fontSize: 12, color: 'white' }}>Listagem</Text>
                     </TouchableOpacity>
-                    {/* <TouchableOpacity style={styles.button}
-                        onPress={() => navigation.navigate('ListaAtendimento', {
-                            id: paciente.idcadPacientes
-                        })}>
-                        <Feather
-                            name="share"
-                            size={12}
-                            color='white'
-                            style={{ alignSelf: 'center' }} />
-                        <Text style={{ fontSize: 11, color: 'white' }}>Encaminhar</Text>
-                    </TouchableOpacity> */}
+                    
                     <StatusBar style="light" />
                 </View>
             )))}

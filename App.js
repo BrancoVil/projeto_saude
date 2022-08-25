@@ -75,7 +75,7 @@ export default function App() {
           options={{
             title: 'Encaminhar',
             headerStyle: { backgroundColor: '#ffb246' },
-            headerTintColor: '#fff'
+            headerTintColor: '#111'
           }} />
 
           

@@ -17,7 +17,7 @@ export default function AtendimentoItem(props) {
             <Feather
                 style={styles.icon}
                 name="user-check"
-                size={20}
+                size={25}
             />
             <View style={styles.titulo}>
                 <Text style={styles.textNome}>Atendimento N°: {props.id}</Text>
@@ -29,24 +29,7 @@ export default function AtendimentoItem(props) {
 
             </View>
 
-            <View style={styles.buttonsContainer}>
 
-                <TouchableOpacity style={styles.editButton} >
-                    <Text>
-                        <Feather
-                            style={styles.icon}
-                            name="share-2"
-                            size={20}
-                            onPress={() => navigationEdit.navigate('Encaminhar', {
-                                cpf: props.id
-        
-                            })}
-                        />
-                    </Text>
-
-                </TouchableOpacity>
-
-            </View>
         </View>
     );
 }
@@ -54,36 +37,37 @@ export default function AtendimentoItem(props) {
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
-        backgroundColor: 'rgba(255, 255, 250, 0.5)',
-        marginTop: 2,
-        
-        
-        
+        paddingBottom: 5,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 1,
+        },
+        shadowOpacity: 0.1,
+        shadowRadius: 1.00,
+
+        elevation: 1,
+        backgroundColor: '#fff',
+        marginBottom: 2
+
+
+
 
     },
     titulo: {
-        width: '80%'
+        width: '85%',
+        marginTop: 5,
+        marginBottom: 5
 
-    },
-    buttonsContainer: {
-        width: '15%',
-        alignContent: 'flex-end'
+
     },
     icon: {
-        width: '5%',
+        width: '15%',
         color: '#ffb246',
+        alignSelf: 'center',
+        paddingLeft: 15
 
-        
-    },
-    editButton: {
-        height: 30,
-        padding: 5,
-        flexGrow:1
-        
-    },
-    buttonText: {
-        color: '#fff',
-        fontWeight: '400',
+
     },
     textItem: {
         fontSize: 10,
