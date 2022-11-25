@@ -13,11 +13,14 @@ export default function AtendimentoItem(props) {
 
 
     return (
-        <View style={styles.container}>
+        <TouchableOpacity style={styles.container} onPress={() => navigationEdit.navigate('Encaminhar', {
+            id: props.id
+
+        })}>
             <Feather
                 style={styles.icon}
                 name="user-check"
-                size={25}
+                size={30}
             />
             <View style={styles.titulo}>
                 <Text style={styles.textNome}>Atendimento N°: {props.id}</Text>
@@ -28,44 +31,36 @@ export default function AtendimentoItem(props) {
                 {/* <Text style={styles.textItem}>Medicamentos: {props.sacolamedicamento}</Text> */}
 
             </View>
+           
 
 
-        </View>
+        </TouchableOpacity>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
-        paddingBottom: 5,
+        justifyContent:'flex-start',
         shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 1,
-        },
-        shadowOpacity: 0.1,
-        shadowRadius: 1.00,
-
-        elevation: 1,
         backgroundColor: '#fff',
-        marginBottom: 2
-
-
-
-
+        marginBottom: 2,
+        
     },
     titulo: {
-        width: '85%',
+        fontSize:15,
+        width: '60%',
         marginTop: 5,
         marginBottom: 5
 
-
     },
     icon: {
-        width: '15%',
         color: '#ffb246',
-        alignSelf: 'center',
-        paddingLeft: 15
+        alignSelf:'center',
+        justifyContent:'center',
+        marginRight:12
+
+        
 
 
     },
@@ -77,4 +72,5 @@ const styles = StyleSheet.create({
         fontSize: 14,
         fontWeight: '500'
     }
+    
 });

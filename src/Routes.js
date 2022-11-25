@@ -4,10 +4,10 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Feather from 'react-native-vector-icons/Feather';
 import { BottomTabBar } from "@react-navigation/bottom-tabs";
-import TelaBuscar from "../screens/TelaBuscar";
-import CadastrarPaciente from "../screens/CadastrarPaciente";
-import ListarPacientes from "../screens/ListaPacientes";
-import TelaPaciente from "../screens/TelaPaciente";
+import TelaBuscar from "../screens/pages/TelaBuscar";
+import CadastrarPaciente from "../screens/pages/CadastrarPaciente";
+import ListarPacientes from "../screens/pages/ListaPacientes";
+import TelaPaciente from "../screens/pages/TelaPaciente";
 
 
 
@@ -17,16 +17,7 @@ const Tab = createBottomTabNavigator();
 export default function Routes() {
   return (
     <Tab.Navigator
-      tabBarOptions={{
-        activeTintColor: '#fff',
-        inactiveTintColor: 'lightgray',
-        activeBackgroundColor: '#c4461c',
-        inactiveBackgroundColor: '#b55031',
-        style: {
-          backgroundColor: '#CE4418',
-          paddingBottom: 3
-        }
-      }}
+      
     >
       <Tab.Screen name="Buscar"
         component={TelaBuscar}

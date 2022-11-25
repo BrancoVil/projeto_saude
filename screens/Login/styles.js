@@ -12,12 +12,13 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     image: {
-        flex: 2,
-        justifyContent: "center"
+        flex: 1,
+        justifyContent: "center",
+        alignContent: 'center'
     },
     footer: {
-        flex: 3,
-        backgroundColor: 'rgba(255, 255, 212, 0.2)',
+        
+        backgroundColor: 'rgba(255, 255, 255, 0.7)',
         paddingHorizontal: 20,
         margin: 5,
         marginTop: 320,

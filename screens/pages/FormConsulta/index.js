@@ -38,9 +38,7 @@ function FormCadastro({ route, navigation }) {
     const [localAtendimento, setLocalAtendimento] = useState('');
     const [sacolaMed, setSacolaMed] = useState('');
 
-    useEffect(() => {
-            CadConsulta();
-        }, [])
+    
 
     const CadConsulta = async () => {
         if (pa != "" || glicemia != "" || localAtendimento != "" || sacolaMed != "") {
@@ -62,7 +60,7 @@ function FormCadastro({ route, navigation }) {
                     if (responseJson == "Consulta cadastrada com Sucesso!.") {
                         alert("Consulta cadastrada com Sucesso!.")
                         navigation.navigate("ListaAtendimento", {
-                            id: idcadPacientes
+                            id: idCadPaciente
                         });
                         
                     } else {

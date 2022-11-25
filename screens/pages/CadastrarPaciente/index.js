@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, useFocusEffect } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import styles from './styles';
 import { TextInputMask } from "react-native-masked-text";
@@ -17,7 +17,7 @@ export default function AppForm({ navigation }) {
     const [postoatendimento, setPostoatendimento] = useState('');
 
     function Cadastrar() {
-        if (cpf != "" || sus != "") {
+        if (cpf != "" || sus != "" || paciente !="") {
 
             fetch('https://ivfassessoria.com/repositories/api/api/paciente/create.php', {
                 method: 'POST',
@@ -50,8 +50,8 @@ export default function AppForm({ navigation }) {
         }
 
     }
-
-
+    
+    
     return (
         <ScrollView style={styles.container}>
             <View >
@@ -126,3 +126,6 @@ export default function AppForm({ navigation }) {
 
     );
 }
+
+
+

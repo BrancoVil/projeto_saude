@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useState, useEffect } from 'react';
+import { useFocusEffect } from '@react-navigation/native';
+import React, { useState, useEffect, useCallback } from 'react';
 import { StyleSheet, View, Text, ScrollView, RefreshControl, FlatList } from 'react-native';
 import AppItem from '../PacienteItem/PacienteItem';
 
@@ -28,16 +29,14 @@ export default function AppList({ route, navigation }) {
     }
 
 
-    
-    useEffect(() => {
-        viewPaciente();
-    }, [])
+   
 
-    const onRefresh = () => {
-        setRefreshing(true);
-        setDataSource([]);
-        getData();
-    };
+    useFocusEffect(
+        React.useCallback(() => {
+            viewPaciente();
+        }, [])
+      );
+    
 
     return (
         <ScrollView>

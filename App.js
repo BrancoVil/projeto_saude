@@ -1,14 +1,14 @@
 import React from 'react';
 import Login from './screens/Login';
-import ListarPacientes from './screens/ListaPacientes';
-import FormCadastro from './screens/FormConsulta';
+import ListarPacientes from './screens/pages/ListaPacientes';
+import FormCadastro from './screens/pages/FormConsulta';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Routes from './src/Routes';
-import TelaPaciente from './screens/TelaPaciente';
-import EditarPaciente from './screens/EditarPaciente';
-import ListaAtendimento from './screens/ListaAtendimento';
-import Encaminhar from './screens/Encaminhar';
+import TelaPaciente from './screens/pages/TelaPaciente';
+import EditarPaciente from './screens/pages/EditarPaciente';
+import ListaAtendimento from './screens/pages/ListaAtendimento';
+import Encaminhar from './screens/pages/Encaminhar';
 
 
 
@@ -32,7 +32,9 @@ export default function App() {
             title: 'Busca e cadastro',
             headerStyle: { backgroundColor: '#ffb246' },
             headerTintColor: '#fff',
-            headerBackVisible: false
+            headerBackVisible: false,
+            
+            
           }} />
        
         <Stack.Screen

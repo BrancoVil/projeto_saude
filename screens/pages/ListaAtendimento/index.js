@@ -1,7 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
+import { useFocusEffect } from '@react-navigation/native';
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, View, Text, ScrollView, RefreshControl, FlatList } from 'react-native';
+import { StyleSheet, View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import AtendimentoItem from '../AtendimentoItem/AtendimentoItem';
+
+
 
 export default function AtendimentoList({ route, navigation }) {
 
@@ -30,17 +33,17 @@ export default function AtendimentoList({ route, navigation }) {
 
     }
 
+    
 
+    // useEffect(() => {
+    //     viewAtendimento();
+    // }, [])
 
-    useEffect(() => {
-        viewAtendimento();
-    }, [])
-
-    const onRefresh = () => {
-        setRefreshing(true);
-        setDataSource([]);
-        getData();
-    };
+    useFocusEffect(
+        React.useCallback(() => {
+            viewAtendimento();
+        }, [])
+      );
 
     if (data) {
         return (
@@ -77,7 +80,8 @@ export default function AtendimentoList({ route, navigation }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'rgba(255, 255, 255, 0.81)',
+        marginStart:2,
+        marginEnd:2
     },
     title: {
         color: '#fff',
@@ -86,14 +90,11 @@ const styles = StyleSheet.create({
         marginTop: 50,
         marginBottom: 20
     },
-    scrollContainer: {
-        flex: 1,
-        width: '100%'
-    },
+    
     itemsContainer: {
         flex: 1,
         marginTop: 1,
-        padding: 5,
+        padding: 1,
         alignItems: 'stretch',
 
     },

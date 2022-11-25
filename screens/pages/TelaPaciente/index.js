@@ -1,4 +1,5 @@
 import React, { Component, useState, useEffect } from "react";
+import { useFocusEffect } from "@react-navigation/native";
 import { StatusBar } from 'expo-status-bar';
 import {
     View,
@@ -40,10 +41,13 @@ function TelaPaciente({ route }) {
             ));
     }
 
-    useEffect(() => {
-        singleViewPaciente();
-    }, [])
 
+
+    useFocusEffect(
+        React.useCallback(() => {
+            singleViewPaciente();
+        }, [])
+      );
 
     return (
 

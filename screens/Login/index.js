@@ -46,9 +46,9 @@ const Login = (props) => {
         }
     }
 
-    const TelaBuscar = props => {
-        props.navigation.navigate('TelaBuscar')
-    }
+    // const TelaBuscar = props => {
+    //     props.navigation.navigate('TelaBuscar')
+    // }
 
 
     const [data, setData] = React.useState({

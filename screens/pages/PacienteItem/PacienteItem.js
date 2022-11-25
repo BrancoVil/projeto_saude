@@ -10,7 +10,10 @@ export default function PacienteItem(props) {
     const navigationEdit = useNavigation();
 
     return (
-        <View style={styles.container}>
+        <TouchableOpacity style={styles.container} onPress={() => navigationEdit.navigate('TelaPaciente', {
+            cpf: props.cpf
+
+        })}>
             <Feather
                 style={styles.icon}
                 name="user"
@@ -23,18 +26,8 @@ export default function PacienteItem(props) {
 
             </View>
 
-            <View style={styles.buttonsContainer}>
-
-                <TouchableOpacity style={styles.editButton} >
-                    <Text style={styles.buttonText} onPress={() => navigationEdit.navigate('TelaPaciente', {
-                        cpf: props.cpf
-
-                    })}>Visualizar</Text>
-
-                </TouchableOpacity>
-
-            </View>
-        </View>
+            
+        </TouchableOpacity>
     );
 }
 
@@ -42,17 +35,11 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         paddingBottom: 5,
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 1,
-        },
-        shadowOpacity: 0.1,
-        shadowRadius: 1.00,
-
-        elevation: 1,
+        
         backgroundColor: '#fff',
-        marginBottom: 2
+        marginBottom: 5,
+        justifyContent:'flex-start',
+        alignItems:'center'
 
 
 
